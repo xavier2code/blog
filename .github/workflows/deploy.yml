@@ -14,19 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 设置 SSH
-      - name: Set up SSH
+      # 安装 sshpass
+      - name: Install sshpass
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 43.136.46.101 >> ~/.ssh/known_hosts
+          sudo apt-get update
+          sudo apt-get install -y sshpass
 
-      # 通过 SSH 登录服务器并执行 git pull
+      # 通过用户名和密码登录服务器并执行 git pull
       - name: Deploy via SSH
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USERNAME }}
+          SERVER_PASS: ${{ secrets.SERVER_PASSWORD }}
+          SERVER_IP: 43.136.46.101
+          REPO_PATH: /home/lighthouse/blog
         run: |
-          ssh -o StrictHostKeyChecking=no root@43.136.46.101 "
-            cd /home/lighthouse/blog &&
+          sshpass -p "$SERVER_PASS" ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
+            cd $REPO_PATH &&
             git fetch origin main &&
             git reset --hard origin/main &&
             git pull origin main
