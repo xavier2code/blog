@@ -25,8 +25,8 @@ jobs:
       # 通过 SSH 登录服务器并执行 git pull
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no user@your-server-ip "
-            cd /path/to/your/repo &&
+          ssh -o StrictHostKeyChecking=no root@gotoxavier.ln.cn "
+            cd /home/lighthouse/blog &&
             git fetch origin main &&
             git reset --hard origin/main &&
             git pull origin main
