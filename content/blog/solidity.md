@@ -1,5 +1,5 @@
 +++
-title = "My second post"
+title = "Solidity"
 date = 2025-01-13
 +++
 
