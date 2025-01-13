@@ -25,7 +25,7 @@ jobs:
         env:
           SERVER_USER: ${{ secrets.SERVER_USERNAME }}
           SERVER_PASS: ${{ secrets.SERVER_PASSWORD }}
-          SERVER_IP: 43.136.46.101
+          SERVER_IP: ${{ secrets.SERVER_IP }}
           REPO_PATH: /home/lighthouse/blog
         run: |
           sshpass -p "$SERVER_PASS" ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
