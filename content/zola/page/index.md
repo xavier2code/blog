@@ -3,7 +3,6 @@ title = "Zola"
 description = "A fast static site generator in a single binary with everything built-in."
 date = 2025-01-14
 draft = false
-render = false
 authors = ["zola", "xavier"]
 +++
 
