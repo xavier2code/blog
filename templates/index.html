@@ -76,7 +76,7 @@
 
         <!-- 帖子列表 -->
         {% for item in section.subsections %}
-        {% set section = get_subsection(path=item) %}
+        {% set section = get_section(path=item) %}
         <div class="post">
             <a href="{{ section.permalink }}" class="post-title">{{ section.title }}</a>
             <!-- 帖子元信息 -->
