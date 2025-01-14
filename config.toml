@@ -13,6 +13,9 @@ build_search_index = true
 # When set to "false", Sitemap.xml is not generated
 generate_sitemap = true
 
+# When set to "false", robots.txt is not generated
+generate_robots_txt = true
+
 taxonomies = [{ name = "tags", feed = true }]
 
 [markdown]
