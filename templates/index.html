@@ -1,115 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xavier's Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f6ef;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 85%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .header {
-            background-color: #ff6600;
-            padding: 10px;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 5px 5px 0 0;
-        }
-        .post {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .post:last-child {
-            border-bottom: none;
-        }
-        .post-title {
-            font-size: 16px;
-            color: #000;
-            text-decoration: none;
-        }
-        .post-title:hover {
-            text-decoration: underline;
-        }
-        .post-meta {
-            font-size: 12px;
-            color: #828282;
-            margin-top: 5px;
-        }
-        .post-meta a {
-            color: #828282;
-            text-decoration: none;
-        }
-        .post-meta a:hover {
-            text-decoration: underline;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #828282;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- 头部 -->
-        <div class="header">
-            Xavier's Blog
-        </div>
-        <!-- 帖子列表 -->
-        {% for item in section.subsections %}
-        {% set section = get_section(path=item) %}
-        <div class="post">
-            <a href="{{ section.permalink }}" class="post-title">{{ section.title }}</a>
-            <!-- 帖子元信息 -->
-            <div class="post-meta">
-                {{ section.word_count }}
-            </div>
-        </div>
-        {% endfor %}
+{% include "base.html" %}
 
-      {% block content %}
-      <lu>
-        {# 获取所有文章 #}
-        {% set posts = get_section("path=@/") %}
-        {# 遍历并展示文章 #}
+<div class="header">
+</div>
 
-        {% for page in posts.pages %}
-        <li>
-          <a href="{{ page.permalink }}">{{ page.title }}</a><span>{{ page.date }}</span>
-        </li>
-        {% endfor %}
-
-        {# 遍历子目录中的文章 #}
-        {% for subsection in posts.subsections %}
-          {% set subsection = get_section(path=subsection) %}
-          {% for page in subsection.pages %}
-          <li>
-            <a href="{{ page.permalink }}">{{ page.title }}</a><span>{{ page.date }}</span>
-          </li>
-          {% endfor %}
-        {% endfor %}
-      </lu>
-      {% endblock content %}
-
-        <!-- 页脚 -->
-        <div class="footer">
-            <a href="#">More</a>
-        </div>
-    </div>
-</body>
-</html>
+<div class="container">
+  {% set index = 1 %}
+  {% set root_section = get_section(path="_index.md")%}
+  {% for subsection in root_section.subsections %}
+  {% set ss = get_section(path=subsection) %}
+  {% for page in ss.pages %}
+  <li>
+    <span>#{{ index }}:</span>
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+    <span>{{ page.date }}</span>
+  </li>
+  {# 索引加一 #}
+  {% set index = index + 1 %}
+  {% endfor %}
+  {% endfor %}
+</div>
