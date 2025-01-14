@@ -57,7 +57,7 @@
           <!-- 帖子标题 -->
           <div class="post-title">{{ page.title }}</div>
         
-          <div> {{ page.content }}</div>
+          <div> {{ page.content | safe }}</div>
           <div> {{ page.date }} | {{ page.description }} | {{ page.word_count }}</div>
         </div>
     </div>
