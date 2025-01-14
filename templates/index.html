@@ -75,14 +75,12 @@
       </div>
 
         <!-- 帖子列表 -->
-        {% for post in section.pages %}
+        {% for section in section.subsections %}
         <div class="post">
-            <!-- 帖子标题 -->
-            <a href="{{ post.permalink }}" class="post-title">{{ post.title }}</a>
+            <a href="{{ section.permalink }}" class="post-title">{{ section.title }}</a>
             <!-- 帖子元信息 -->
             <div class="post-meta">
-                {{ post.date | date(format="%Y-%m-%d") }} |
-                <a href="{{ post.permalink }}">{{ post.comments | default(value=0) }} comments</a>
+                {{ section.word_count }}
             </div>
         </div>
         {% endfor %}
