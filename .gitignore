@@ -8,8 +8,5 @@ Desktop.ini
 #
 .obsidian/
 
-# template
-content/template/
-
-# public
+# output files
 public/
