@@ -22,6 +22,13 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        .header {
+            background-color: #ff6600;
+            padding: 10px;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
         .post {
             padding: 10px 0;
             border-bottom: 1px solid #eee;
@@ -29,25 +36,30 @@
         .post:last-child {
             border-bottom: none;
         }
-        .post-meta {
-            font-size: 12px;
-            color: #828282;
-            margin-top: 5px;
-        }
-        .post-meta a {
-            color: #828282;
+        .post-title {
+            font-size: 16px;
+            color: #000;
             text-decoration: none;
         }
-        .post-meta a:hover {
+        .post-title:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-      <div class="post">
-        {{ content }}
-      </div>
+        <!-- 头部 -->
+        <div class="header">
+            Xavier's Blog
+        </div>
+        <!-- 帖子列表 -->
+        <div class="post">
+          <!-- 帖子标题 -->
+          <div class="post-title">{{ page.title }}</div>
+        
+          <div> {{ page.content }}</div>
+          <div> {{ page.date }} | {{ page.description }} | {{ page.word_count }}</div>
+        </div>
     </div>
 </body>
 </html>
