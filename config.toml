@@ -16,6 +16,9 @@ generate_sitemap = true
 # When set to "false", robots.txt is not generated
 generate_robots_txt = true
 
+# When set to "ture", a feed is automatically generated.
+generate_feeds = true
+
 taxonomies = [{ name = "tags", feed = true }]
 
 [markdown]

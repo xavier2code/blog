@@ -70,10 +70,6 @@
         <div class="header">
             Xavier's Blog
         </div>
-      <div>
-        {{ section.content | safe }}
-      </div>
-
         <!-- 帖子列表 -->
         {% for item in section.subsections %}
         {% set section = get_section(path=item) %}
@@ -85,6 +81,30 @@
             </div>
         </div>
         {% endfor %}
+
+      {% block content %}
+      <lu>
+        {# 获取所有文章 #}
+        {% set posts = get_section("path=@/") %}
+        {# 遍历并展示文章 #}
+
+        {% for page in posts.pages %}
+        <li>
+          <a href="{{ page.permalink }}">{{ page.title }}</a><span>{{ page.date }}</span>
+        </li>
+        {% endfor %}
+
+        {# 遍历子目录中的文章 #}
+        {% for subsection in posts.subsections %}
+          {% set subsection = get_section(path=subsection) %}
+          {% for page in subsection.pages %}
+          <li>
+            <a href="{{ page.permalink }}">{{ page.title }}</a><span>{{ page.date }}</span>
+          </li>
+          {% endfor %}
+        {% endfor %}
+      </lu>
+      {% endblock content %}
 
         <!-- 页脚 -->
         <div class="footer">

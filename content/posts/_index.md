@@ -1,5 +1,10 @@
 +++
-title = "posts"
+title = "Posts"
+description = ""
 draft = false
-weight = 99
+sort_by = "date"
+weight = 1
+paginate_by = 30
+paginate_path = "page"
+generate_feeds = true
 +++

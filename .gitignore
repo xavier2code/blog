@@ -4,3 +4,9 @@
 # Windows system files
 Thumbs.db
 Desktop.ini
+
+#
+.obsidian/
+
+# template
+content/template/
