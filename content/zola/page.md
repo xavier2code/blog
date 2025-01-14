@@ -5,7 +5,6 @@ date = 2025-01-14
 draft = false
 render = false
 authors = ["zola", "xavier"]
-tempalte = "page.html"
 +++
 
 ## Page variables
