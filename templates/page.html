@@ -33,30 +33,21 @@
             padding: 10px 0;
             border-bottom: 1px solid #eee;
         }
-        .post:last-child {
-            border-bottom: none;
-        }
-        .post-title {
-            font-size: 16px;
-            color: #000;
-            text-decoration: none;
-        }
-        .post-title:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
     <div class="container">
+      <div>
+        {% for asset in page.assets %}
+          {{loop.index}}. {{asset.name}}
+        {% endfor %}
+      </div>
         <!-- 头部 -->
         <div class="header">
-            Xavier's Blog
+          {{ page.title }}
         </div>
         <!-- 帖子列表 -->
         <div class="post">
-          <!-- 帖子标题 -->
-          <div class="post-title">{{ page.title }}</div>
-        
           <div> {{ page.content | safe }}</div>
           <div> {{ page.date }} | {{ page.description }} | {{ page.word_count }}</div>
         </div>
