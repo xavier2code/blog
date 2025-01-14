@@ -1,0 +1,6 @@
+# MacOS system files
+.DS_store
+
+# Windows system files
+Thumbs.db
+Desktop.ini
