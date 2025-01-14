@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xavier's Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6ef;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 85%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .post {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post-meta {
+            font-size: 12px;
+            color: #828282;
+            margin-top: 5px;
+        }
+        .post-meta a {
+            color: #828282;
+            text-decoration: none;
+        }
+        .post-meta a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="post">
+        {{ content }}
+      </div>
+    </div>
+</body>
+</html>
