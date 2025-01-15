@@ -1,18 +1,30 @@
 {% include "base.html" %}
 
-<div class="container">
-  {% set index = 1 %}
+{% block content %}
+<div class="sections">
+  <li>
+    <a href="{{ section.permalink }}">{{ section.title }}</a>
+  </li>
+  {% for sub_section in section.subsections %}
+  <li>
+    {% set ss = get_section(path=sub_section) %}
+    <a href="{{ ss.permalink }}">{{ ss.title }}</a>
+  </li>
+  {% endfor %}
+</div>
+<div>
+  ---
+</div>
+<div class="posts">
   {% set root_section = get_section(path="_index.md")%}
   {% for subsection in root_section.subsections %}
   {% set ss = get_section(path=subsection) %}
   {% for page in ss.pages %}
   <li>
-    <span>#{{ index }}:</span>
     <a href="{{ page.permalink }}">{{ page.title }}</a>
     <span>{{ page.date }}</span>
   </li>
-  {# 索引加一 #}
-  {% set index = index + 1 %}
   {% endfor %}
   {% endfor %}
 </div>
+{% endblock content %}
