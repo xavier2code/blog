@@ -6,6 +6,14 @@
     <title>Xavier's Blog</title>
 </head>
 <body>
+<div class="sections">
+  {% set section = get_section(path="_index.md") %}
+  <a href="{{ section.permalink }}">{{ section.title }}</a>
+  {% for sub_section in section.subsections %}
+    {% set ss = get_section(path=sub_section) %}
+    | <a href="{{ ss.permalink }}">{{ ss.title }}</a> 
+  {% endfor %}
+</div>
     {% block content %}
     {% endblock %}
 </body>

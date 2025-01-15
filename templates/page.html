@@ -1,3 +1,6 @@
+{% include "base.html" %}
+
+{% block content %}
 <div class="title">
   {{ page.title }}
 </div>
@@ -27,3 +30,4 @@
 <div>
   {{ page.authors }} | {{ page.date }} | {{ page.word_count }}
 </div>
+{% endblock content %}

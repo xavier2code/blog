@@ -1,15 +1,8 @@
 {% include "base.html" %}
 
 {% block content %}
-<div class="sections">
-  <a href="{{ section.permalink }}">{{ section.title }}</a>
-  {% for sub_section in section.subsections %}
-    {% set ss = get_section(path=sub_section) %}
-    | <a href="{{ ss.permalink }}">{{ ss.title }}</a> 
-  {% endfor %}
-</div>
 <div class="posts">
-  {% set root_section = get_section(path="_index.md")%}
+  {% set root_section = section %}
   {% for subsection in root_section.subsections %}
   {% set ss = get_section(path=subsection) %}
   {% for page in ss.pages %}
