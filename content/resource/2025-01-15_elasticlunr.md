@@ -5,7 +5,7 @@ draft = false
 slug = "elasticlunr"
 authors = ["Xavier"]
 [taxonomies]
-tags = ["rust", "web", "search"]
+tags = ["zola"]
 +++
 
 set `build_search_index = true` in `config.toml`
