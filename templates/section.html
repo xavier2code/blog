@@ -3,11 +3,11 @@
 {% block content %}
 <div class="header">
   <div class="container">
-    {{ section.title }} | {{ section.pages | length }}
+    {{ section.title }} | {{ paginator.pages | length }}
   </div>
   <div class="container">
     <ul class="subsections-list">
-      {% for page in section.pages %}
+      {% for page in paginator.pages %}
       <li class="subsection-item">
         <h2 class="subsection-title">
           <a href="{{ page.permalink }}">{{ page.title }}</a>
@@ -21,3 +21,13 @@
     </ul>
   </div>
 {% endblock content %}
+
+<nav clas="pagination">
+  {% if paginator.previous %}
+    <a class="previous" href="{{ paginator.previous }}">< Previous</a>
+  {% endif %}
+  {% if paginator.next %}
+  <a href="next" href="{{ paginator.next }}">Next ></a>
+  {% endif %}
+</nav>
+
