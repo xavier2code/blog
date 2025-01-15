@@ -2,18 +2,11 @@
 
 {% block content %}
 <div class="sections">
-  <li>
-    <a href="{{ section.permalink }}">{{ section.title }}</a>
-  </li>
+  <a href="{{ section.permalink }}">{{ section.title }}</a>
   {% for sub_section in section.subsections %}
-  <li>
     {% set ss = get_section(path=sub_section) %}
-    <a href="{{ ss.permalink }}">{{ ss.title }}</a>
-  </li>
+    | <a href="{{ ss.permalink }}">{{ ss.title }}</a> 
   {% endfor %}
-</div>
-<div>
-  ---
 </div>
 <div class="posts">
   {% set root_section = get_section(path="_index.md")%}

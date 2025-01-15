@@ -1,6 +1,6 @@
 <div class="header">
   <div class="container">
-    {{ section.title }}
+    {{ section.title }} | {{ section.pages | length }}
   </div>
   <div class="container">
     <ul class="subsections-list">
@@ -10,7 +10,7 @@
           <a href="{{ page.permalink }}">{{ page.title }}</a>
         </h2>
         <div class="subsection-meta">
-          <span>{{ section.pages | length }} posts</span>
+          <span>{{ page.word_count }} words </span>
           | <a href="{{ page.permalink }}">View all</a>
         </div>
       </li>

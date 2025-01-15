@@ -7,6 +7,9 @@ author = "Xavier"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+# default_language
+default_language = "en"
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
@@ -28,3 +31,9 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+
+[search]
+# Accepted values:
+# - "elasticlunr_javascript", "elasticlunr_json"
+# - "fuse_javascript", "fuse_json"
+index_format = "elasticlunr_javascript"
