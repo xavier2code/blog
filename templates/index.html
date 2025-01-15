@@ -8,7 +8,7 @@
   {% for page in ss.pages %}
   <li>
     <a href="{{ page.permalink }}">{{ page.title }}</a>
-    <span>{{ page.date }}</span>
+    <span> | {{ page.taxonomies.tags }} | {{ page.date }}</span>
   </li>
   {% endfor %}
   {% endfor %}
