@@ -7,4 +7,5 @@ weight = 5
 template = "contact.html"
 +++
 
-## This is a contact seciton
+- **email**: [xavier2code@gmail.com](xavier2code@gmail.com)
+- **github**: [xavier2code](https://github.com/xavier2code)

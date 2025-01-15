@@ -2,7 +2,7 @@
 base_url = "https://gotoxavier.ln.cn"
 
 # author
-author = "Xavier"
+author = "xavier"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
