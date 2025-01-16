@@ -6,7 +6,7 @@ oauth: pages.sr.ht/PAGES:RW
 environment:
   site: xavier2code.srht.site
 sources:
-  - https://git.sr.ht/xavier2code/blog
+  - https://git.sr.ht/~xavier2code/blog
 tasks:
   - build: |
       cd blog
