@@ -1,0 +1,18 @@
+image: alpine/edge
+packages:
+  - hut
+  - zola
+oauth: pages.sr.ht/PAGES:RW
+environment:
+  site: xavier2code.srht.site
+sources:
+  - https://git.sr.ht/xavier2code/blog
+tasks:
+  - build: |
+      cd blog
+      zola build
+  - package: |
+      cd blog
+      tar -C public -cvz . > ../site.tar.gz
+  - upload: |
+      hut pages publish -d $site site.tar.gz
