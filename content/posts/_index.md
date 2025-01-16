@@ -3,6 +3,7 @@ title = "Posts"
 description = ""
 draft = false
 sort_by = "date"
-paginate_by = 2
 weight = 1
+generate_feeds = true
+redirect_to = "categories/posts/"
 +++

@@ -1,0 +1,26 @@
+{% include "base.html" %}
+
+{% block content %}
+<ul class="subsections-list">
+  {% for page in paginator.pages %}
+  <li class="subsection-item">
+    <h2 class="subsection-title">
+      <a href="{{ page.permalink }}">{{ page.title }}</a>
+    </h2>
+    <div class="subsection-meta">
+      <span>{{ page.word_count }} words </span>
+      | <a href="{{ page.permalink }}">View all</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
+
+<nav clas="pagination">
+  {% if paginator.previous %}
+    <a class="previous" href="{{ paginator.previous }}">< Previous</a>
+  {% endif %}
+  {% if paginator.next %}
+    <a class="next" href="{{ paginator.next }}">Next ></a>
+  {% endif %}
+</nav>

@@ -7,4 +7,4 @@ weight = 4
 template = "comments.html"
 +++
 
-## This is a comment seciton
+## This is the comment seciton

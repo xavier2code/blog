@@ -22,7 +22,10 @@ generate_robots_txt = true
 # When set to "ture", a feed is automatically generated.
 generate_feeds = true
 
-taxonomies = [{ name = "tags", feed = true }]
+taxonomies = [
+  { name = "tags", feed = true },
+  { name = "categories", paginate_by = 10, feed = true, render = true },
+]
 
 [markdown]
 # Whether to do syntax highlighting

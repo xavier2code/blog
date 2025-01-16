@@ -2,15 +2,12 @@
 
 {% block content %}
 <div class="posts">
-  {% set root_section = section %}
-  {% for subsection in root_section.subsections %}
-  {% set ss = get_section(path=subsection) %}
+  {% set ss = get_section(path="posts/_index.md") %}
   {% for page in ss.pages %}
   <li>
     <a href="{{ page.permalink }}">{{ page.title }}</a>
     <span> | {{ page.taxonomies.tags }} | {{ page.date }}</span>
   </li>
-  {% endfor %}
   {% endfor %}
 </div>
 {% endblock content %}

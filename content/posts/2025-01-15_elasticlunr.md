@@ -6,6 +6,7 @@ slug = "elasticlunr"
 authors = ["Xavier"]
 [taxonomies]
 tags = ["zola"]
+categories = ["resource"]
 +++
 
 set `build_search_index = true` in `config.toml`

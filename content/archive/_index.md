@@ -4,6 +4,8 @@ description = ""
 draft = false
 sort_by = "date"
 weight = 3
-paginate_by = 2
+template = "archive.html"
 generate_feeds = true
 +++
+
+## This is the archive section

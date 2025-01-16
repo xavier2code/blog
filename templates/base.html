@@ -7,12 +7,16 @@
 </head>
 <body>
 <div class="sections">
-  {% set section = get_section(path="_index.md") %}
-  <a href="{{ section.permalink }}">{{ section.title }}</a>
-  {% for sub_section in section.subsections %}
-    {% set ss = get_section(path=sub_section) %}
-    | <a href="{{ ss.permalink }}">{{ ss.title }}</a> 
-  {% endfor %}
+  {% set homepage = get_section(path="_index.md") %}
+  <a href="{{ homepage.permalink }}">{{ homepage.title }}</a> |
+      <a href="/categories/posts">Posts</a> |
+  <a href="/categories/resource">Resource</a> |
+  {% set archive = get_section(path="archive/_index.md") %}
+  <a href="{{ archive.permalink }}">{{ archive.title }}</a> |
+  {% set comments = get_section(path="comments/_index.md") %}
+  <a href="{{ comments.permalink }}">{{ comments.title }}</a> |
+  {% set contact = get_section(path="contact/_index.md") %}
+  <a href="{{ contact.permalink }}">{{ contact.title }}</a> |
 </div>
     {% block content %}
     {% endblock %}
