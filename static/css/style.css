@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'ghFont';
+  src: url('/fonts/BigBlueTerm437NerdFontPropo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'ghFont', sans-serif;
+}

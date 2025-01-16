@@ -1,5 +1,6 @@
 {% include "base.html" %}
 
+{% block content %}
 {{ section.content | safe }}
 
 {% set archive = get_section(path="posts/_index.md") %}
@@ -13,3 +14,4 @@
   {% endfor %}
   </ul>
 {% endfor %}
+{% endblock content %}

@@ -1,6 +1,10 @@
+{% include "base.html" %}
+
+{% block content %}
 <div class="error-page">
   <h2>404</h2>
   <p>Page not found.</p>
   <p>Looks like you've followed a broken link or entered a URL that doesn't exist on this site.</p>
   <p><a href="{{ config.base_url }}"> Back to the homepage</a></p>
 </div>
+{% endblock content %}

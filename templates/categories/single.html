@@ -1,13 +1,13 @@
 {% include "base.html" %}
 
 {% block content %}
-<ul class="subsections-list">
+<ul class="category">
   {% for page in paginator.pages %}
-  <li class="subsection-item">
-    <h2 class="subsection-title">
+  <li class="page">
+    <h2 class="title">
       <a href="{{ page.permalink }}">{{ page.title }}</a>
     </h2>
-    <div class="subsection-meta">
+    <div class="meta">
       <span>{{ page.word_count }} words </span>
       | <a href="{{ page.permalink }}">View all</a>
     </div>

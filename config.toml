@@ -23,7 +23,7 @@ generate_robots_txt = true
 generate_feeds = true
 
 taxonomies = [
-  { name = "tags", feed = true },
+  { name = "tags", feed = true, render = false },
   { name = "categories", paginate_by = 10, feed = true, render = true },
 ]
 
