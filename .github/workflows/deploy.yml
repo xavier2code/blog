@@ -28,9 +28,4 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
           REPO_PATH: /home/lighthouse/blog
         run: |
-          sshpass -p "$SERVER_PASS" ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
-            cd $REPO_PATH &&
-            git fetch origin main &&
-            git reset --hard origin/main &&
-            git pull origin main
-          "
+          echo $SERVER_IP
