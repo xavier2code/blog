@@ -24,7 +24,7 @@ generate_feeds = true
 
 taxonomies = [
   { name = "tags", feed = true, render = false },
-  { name = "categories", paginate_by = 10, feed = true, render = true },
+  { name = "categories", paginate_by = 5, feed = true, render = true },
 ]
 
 [markdown]
