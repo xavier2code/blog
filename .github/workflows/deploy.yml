@@ -1,31 +1,17 @@
-name: Deploy on Push
-
-on:
-  push:
-    branches:
-      - main  # 只在 main 分支 push 时触发
-
+# On every push this script is executed
+on: push
+name: Build and deploy GH Pages
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
+    if: github.ref = 'refs/heads/main'
     steps:
-      # 检出代码
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # 安装 sshpass
-      - name: Install sshpass
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-
-      # 通过用户名和密码登录服务器并执行 git pull
-      - name: Deploy via SSH
+      - name: checkout
+        uses: action/checkout@v4
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@master
         env:
-          SERVER_USER: ${{ secrets.SERVER_USERNAME }}
-          SERVER_PASS: ${{ secrets.SERVER_PASSWORD }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          REPO_PATH: /home/lighthouse/blog
-        run: |
-          echo $SERVER_IP
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Provide personal access token
+          TOKEN: ${{ PERSONAL_ACCESS_TOKEN }}
