@@ -1,6 +1,6 @@
 +++
 title = "What is Tera ?"
-data = "2025-01-17"
+date = "2025-01-17"
 
 [taxonomies]
 tags=["documentation"]

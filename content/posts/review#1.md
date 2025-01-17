@@ -1,6 +1,6 @@
 +++
 title = "2024 in Review"
-data = "2024-12-31"
+date = "2024-12-31"
 
 [taxonomies]
 tags=["documentation"]
