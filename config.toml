@@ -42,7 +42,7 @@ highlight_theme = "ayu-light"
 [extra]
 # Put all your custom variables here
 theme = "toggle"
-logo = "site_logo.svg"
+# logo = "site_logo.svg"
 favicon = "favicon.png"
 fancy_code = true
 dynamic_note = true # a note that can be toggled
