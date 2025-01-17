@@ -60,3 +60,10 @@ menu = [
   { name = "/about", url = "/about", weight = 4 },
   { name = "/tags", url = "/tags", weight = 5 },
 ]
+
+[extra.analytics]
+enabled = true
+
+[extra.analytics.goatcounter]
+user = "xavier2code"
+host = "goatcounter.com" # default= goatcounter.com
