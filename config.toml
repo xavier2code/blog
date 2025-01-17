@@ -50,7 +50,11 @@ mathjax = true
 mathjax_dollar_inline_enable = true
 socials = [
   # Configure socials here
+  { name = "email", url = "https://github.com/xavier2code/", icon = "email" },
   { name = "github", url = "https://github.com/xavier2code/", icon = "github" },
+  { name = "discord", url = "https://github.com/xavier2code/", icon = "discord" },
+  { name = "reddit", url = "https://github.com/xavier2code/", icon = "reddit" },
+  { name = "x-twitter", url = "https://github.com/xavier2code/", icon = "x-twitter" },
 ]
 menu = [
   # Configure menu bar here
