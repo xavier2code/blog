@@ -1,6 +1,7 @@
 +++
 title = "Configuring Apollo"
 date = "2024-07-09"
+draft = true
 
 [taxonomies]
 tags=["documentation"]
@@ -24,6 +25,7 @@ When enabled, a search index will be generated for your blog, allowing visitors 
 Additionally, a search button will be displayed in the navigation bar.
 
 Configure the search like this:
+
 ```toml
 build_search_index = true
 
@@ -53,6 +55,7 @@ Defines the navigation menu items for your blog.
 - Type: Array of objects
 - Default: []
 - Usage:
+
   ```toml
   menu = [
       { name = "/posts", url = "/posts", weight = 1 },
@@ -68,6 +71,7 @@ Defines the site logo image file.
 
 - Type: String
 - Usage:
+
   ```toml
   logo = "site_logo.svg"
   ```
@@ -79,6 +83,7 @@ Defines the social media links.
 - Type: Array of objects
 - Default: []
 - Usage:
+
   ```toml
   socials = [
     { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
@@ -141,6 +146,7 @@ When enabled, you can create expandable/collapsible note sections in your blog p
 ## Anchor Links
 
 You can add anchor links by adding the following to your `_index.md`:
+
 ```toml
 insert_anchor_links = "heading"
 ```
@@ -176,9 +182,7 @@ website_id = "43929cd1-1e83...."                    # Your Umami website ID
 host_url = "https://stats.mywebsite.com"            # Optional: Custom host URL
 ```
 
-
 ---
-
 
 # Page configuration
 
@@ -206,6 +210,7 @@ After making `comment = true` in `[extra]` section of you post, save your script
 When enabled, this allows readers to leave comments on your blog posts. This feature has to be set for each individual post and is not supported at higher levels.
 
 Example configuration in [content/posts/configuration.md](https://github.com/not-matthias/apollo/blob/main/content/posts/configuration.md):
+
 ```toml
 +++
 title = "Configuring Apollo"
@@ -216,12 +221,14 @@ comment = true
 ```
 
 Comments via [utterances](https://utteranc.es) can be configured in `template/_giscus_script.html` like this:
+
 ```html
-<script src="https://utteranc.es/client.js"
-        repo="YOUR_NAME/YOUR_REPO"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://utteranc.es/client.js"
+  repo="YOUR_NAME/YOUR_REPO"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 ```

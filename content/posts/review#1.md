@@ -3,7 +3,7 @@ title = "2024 in Review: A Year of Growth and Challenges"
 date = "2024-12-31"
 
 [taxonomies]
-tags=["documentation"]
+tags=["review", "2024"]
 
 [extra]
 repo_view = true
