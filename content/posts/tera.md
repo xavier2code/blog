@@ -6,8 +6,9 @@ date = "2025-01-17"
 tags=["documentation", "resource"]
 
 [extra]
-repo_view = true
 comment = true
 +++
 
 ## Tera
+
+> Slow and steady wins the race.

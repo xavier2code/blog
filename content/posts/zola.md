@@ -3,10 +3,9 @@ title = "How to build a blog website like this"
 date = "2025-01-17"
 
 [taxonomies]
-tags=["documentation", "resouce"]
+tags=["documentation", "resource"]
 
 [extra]
-repo_view = true
 comment = true
 +++
 

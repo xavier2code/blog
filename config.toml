@@ -2,7 +2,7 @@
 base_url = "https://xavier2code.site"
 
 # The site title and description; used in feeds by default.
-title = "Xavier's blog"
+title = "xavier2code"
 description = ""
 
 # The default language; used in feeds.
@@ -50,11 +50,11 @@ mathjax = true
 mathjax_dollar_inline_enable = true
 socials = [
   # Configure socials here
-  { name = "email", url = "https://github.com/xavier2code/", icon = "email" },
+  { name = "email", url = "https://mail.google.com/", icon = "email" },
   { name = "github", url = "https://github.com/xavier2code/", icon = "github" },
-  { name = "discord", url = "https://github.com/xavier2code/", icon = "discord" },
-  { name = "reddit", url = "https://github.com/xavier2code/", icon = "reddit" },
-  { name = "x-twitter", url = "https://github.com/xavier2code/", icon = "x-twitter" },
+  { name = "discord", url = "https://discord.com/", icon = "discord" },
+  { name = "reddit", url = "https://www.reddit.com/", icon = "reddit" },
+  { name = "x-twitter", url = "https://x.com/", icon = "x-twitter" },
 ]
 menu = [
   # Configure menu bar here
