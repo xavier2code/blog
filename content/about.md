@@ -19,7 +19,7 @@ On this blog, you’ll find tutorials, productivity tips, and personal stories a
 
 ## Fun Facts About Me
 
-- I’m a huge fan of coffee and sci-fi movies.
+- I’m a huge fan of video games and sci-fi movies.
 - My favorite book is *The Pragmatic Programmer*.
 - I once climbed Mount Kilimanjaro!
 
@@ -27,4 +27,4 @@ On this blog, you’ll find tutorials, productivity tips, and personal stories a
 
 I’d love to hear from you! Feel free to leave a comment, send me an email, or connect on [Twitter](https://twitter.com/yourhandle). If you enjoyed this blog, don’t forget to subscribe for more updates. Thanks for being here!
 
-![xavier]()
+![xavier2code](avatar.svg)
