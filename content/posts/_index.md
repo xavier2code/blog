@@ -1,9 +1,10 @@
 +++
+paginate_by = 7
 title = "Posts"
-description = ""
-draft = false
 sort_by = "date"
-weight = 1
-generate_feeds = true
-redirect_to = "categories/posts/"
+
+insert_anchor_links = "heading"
+
+[extra]
+comment = true
 +++

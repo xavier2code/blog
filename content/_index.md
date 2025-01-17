@@ -1,8 +1,8 @@
 +++
-title = "Homepage"
-description = ""
-draft = false
-sort_by = "date"
-weight = 0
-generate_feeds = true
+title= "Apollo Theme"
+template = "homepage.html"
 +++
+
+Thanks for checking out this theme!
+
+Checkout all the [options you can configure](./posts/configuration) and the [example pages](./tags/example/).

@@ -1,6 +1,9 @@
 # The URL the site will be built for
 base_url = "https://xavier2code.site"
 
+# use theme
+theme = "apollo"
+
 # author
 author = "xavier"
 
@@ -10,22 +13,10 @@ compile_sass = true
 # default_language
 default_language = "en"
 
-# Whether to build a search index to be used later on by a JavaScript library
+# search index
 build_search_index = true
 
-# When set to "false", Sitemap.xml is not generated
-generate_sitemap = true
-
-# When set to "false", robots.txt is not generated
-generate_robots_txt = true
-
-# When set to "ture", a feed is automatically generated.
-generate_feeds = true
-
-taxonomies = [
-  { name = "tags", feed = true, render = false },
-  { name = "categories", paginate_by = 5, feed = true, render = true },
-]
+taxonomies = [{ name = "tags" }]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -34,9 +25,24 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+theme = "toggle"
+logo = "site_logo.svg"
+socials = [
+  # Configure socials here
+  { name = "github", url = "https://github.com/xavier2code/", icon = "github" },
+]
+menu = [
+  # Configure menu bar here
+  { name = "/posts", url = "/posts", weight = 1 },
+  { name = "/projects", url = "/projects", weight = 2 },
+  { name = "/about", url = "/about", weight = 3 },
+  { name = "/tags", url = "/tags", weight = 4 },
+]
+comment = false
 
 [search]
-# Accepted values:
-# - "elasticlunr_javascript", "elasticlunr_json"
-# - "fuse_javascript", "fuse_json"
-index_format = "elasticlunr_javascript"
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "elasticlunr_json"
