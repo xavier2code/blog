@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{% if section.extra.section_path -%}
+{% set section = get_section(path=section.extra.section_path) %}
+{% endif -%}
+
+{{ post_macros::page_header(title=section.title) }}
+
+{% set archive = get_section(path="posts/_index.md") %}
+
+{% for year, posts in archive.pages | group_by(attribute="year") %}
+  <h2>{{ year }}</h2>
+
+  <ul>
+  {% for post in posts %}
+  <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endfor %}
+{% endblock main_content %}

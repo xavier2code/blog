@@ -43,7 +43,7 @@ highlight_theme = "ayu-light"
 # Put all your custom variables here
 theme = "toggle"
 logo = "site_logo.svg"
-favicon = "/icon/favicon.png"
+favicon = "favicon.png"
 fancy_code = true
 dynamic_note = true # a note that can be toggled
 mathjax = true
@@ -56,6 +56,7 @@ menu = [
   # Configure menu bar here
   { name = "/posts", url = "/posts", weight = 1 },
   { name = "/projects", url = "/projects", weight = 2 },
-  { name = "/about", url = "/about", weight = 3 },
-  { name = "/tags", url = "/tags", weight = 4 },
+  { name = "/archive", url = "/archive", weight = 3 },
+  { name = "/about", url = "/about", weight = 4 },
+  { name = "/tags", url = "/tags", weight = 5 },
 ]
