@@ -3,7 +3,7 @@ title = "Tera"
 date = "2025-01-17"
 
 [taxonomies]
-tags=["documentation", "resource"]
+tags=["文档", "工具"]
 
 [extra]
 comment = true
@@ -12,4 +12,3 @@ comment = true
 ## Tera
 
 > Slow and steady wins the race.
-
