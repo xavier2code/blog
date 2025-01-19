@@ -1,6 +1,8 @@
 +++
 title = "About"
 path = "about"
+[extra]
+comment = true
 +++
 
 Hi, I'm Xavier! Welcome to my little corner of the internet. This blog is where I share my thoughts, experiences, and passions about technology and personal growth. Whether you're here to learn, explore, or just enjoy some good reads, I'm glad you stopped by!
