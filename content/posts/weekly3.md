@@ -1,13 +1,13 @@
 +++
-title = "Week 3 Summary"
+title = "Weekly #3"
 date = "2025-01-19"
 draft = false
+
 [taxonomies]
-tags=["documentation", "weekly"]
+tags=["documentation", "summary"]
 
 [extra]
 comment = true
 +++
 
 🍇
-
