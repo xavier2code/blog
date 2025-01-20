@@ -1,6 +1,5 @@
 +++
 title = "Tera"
-description = "A powerful, easy to use template engine for Rust"
 date = "2025-01-17"
 draft = false
 

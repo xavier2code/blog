@@ -1,6 +1,5 @@
 +++
 title = "2024 in Review"
-description = "2024 in Review: A Year of Growth and Challenges"
 date = "2024-12-31"
 draft = false
 
