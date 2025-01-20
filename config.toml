@@ -71,9 +71,3 @@ enabled = true
 [extra.analytics.goatcounter]
 user = "xavier2code"
 host = "goatcounter.com" # default= goatcounter.com
-
-[languages]
-[languages.zh]
-generate_feeds = true
-build_search_index = false
-taxonomies = [{ name = "tags" }]
