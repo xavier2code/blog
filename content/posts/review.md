@@ -4,7 +4,7 @@ date = "2024-12-31"
 draft = false
 
 [taxonomies]
-tags=["review"]
+tags=["summary"]
 
 [extra]
 repo_view = true

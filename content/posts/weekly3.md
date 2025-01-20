@@ -4,7 +4,7 @@ date = "2025-01-19"
 draft = false
 
 [taxonomies]
-tags=["documentation", "summary"]
+tags=[summary"]
 
 [extra]
 comment = true
