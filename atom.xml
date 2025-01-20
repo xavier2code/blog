@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>xavier2code</title>
+    <link rel="self" type="application/atom+xml" href="https://xavier2code.site/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://xavier2code.site"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-01-20T00:00:00+00:00</updated>
+    <id>https://xavier2code.site/atom.xml</id>
+    <entry xml:lang="en">
+        <title>How to Build a Static Site Generator in Rust</title>
+        <published>2025-01-20T00:00:00+00:00</published>
+        <updated>2025-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              xavier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://xavier2code.site/posts/ssg/"/>
+        <id>https://xavier2code.site/posts/ssg/</id>
+        
+        <content type="html" xml:base="https://xavier2code.site/posts/ssg/"></content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Weekly #3</title>
+        <published>2025-01-19T00:00:00+00:00</published>
+        <updated>2025-01-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              xavier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://xavier2code.site/posts/weekly3/"/>
+        <id>https://xavier2code.site/posts/weekly3/</id>
+        
+        <content type="html" xml:base="https://xavier2code.site/posts/weekly3/">&lt;p&gt;🍇&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tera</title>
+        <published>2025-01-17T00:00:00+00:00</published>
+        <updated>2025-01-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              xavier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://xavier2code.site/posts/tera/"/>
+        <id>https://xavier2code.site/posts/tera/</id>
+        
+        <content type="html" xml:base="https://xavier2code.site/posts/tera/">&lt;h2 id=&quot;tera&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#tera&quot; aria-label=&quot;Anchor link for: tera&quot;&gt;Tera&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🍇 Slow and steady wins the race.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;usage&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#usage&quot; aria-label=&quot;Anchor link for: usage&quot;&gt;Usage&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;The primary method of using Tera is to load and parse all the templates in a given glob.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;text&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-text &quot;&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&lt;span&gt;templates&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;  hello.html
+&lt;&#x2F;span&gt;&lt;span&gt;  index.html
+&lt;&#x2F;span&gt;&lt;span&gt;  products&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;    product.html
+&lt;&#x2F;span&gt;&lt;span&gt;    price.html
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Assuming the Rust file is at the same level as the &lt;code&gt;templates&lt;&#x2F;code&gt; folder, we can get a Tera instance that way:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;tera&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;Tera&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;&#x2F;&#x2F; use globbing
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; tera &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;match &lt;&#x2F;span&gt;&lt;span&gt;Tera&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;new(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;templates&#x2F;**&#x2F;*.html&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#55b4d4;&quot;&gt;Ok&lt;&#x2F;span&gt;&lt;span&gt;(t) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#55b4d4;&quot;&gt;Err&lt;&#x2F;span&gt;&lt;span&gt;(e) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;Parsing error(s): &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; e)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;process&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt;exit(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>2024 in Review</title>
+        <published>2024-12-31T00:00:00+00:00</published>
+        <updated>2024-12-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              xavier
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://xavier2code.site/posts/review/"/>
+        <id>https://xavier2code.site/posts/review/</id>
+        
+        <content type="html" xml:base="https://xavier2code.site/posts/review/">&lt;h2 id=&quot;the-long-dark-night&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-long-dark-night&quot; aria-label=&quot;Anchor link for: the-long-dark-night&quot;&gt;The Long, Dark Night&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;2024 has been the darkest year of my life. The layoff at the beginning of the year and the subsequent labor arbitration left me in a state of deep anxiety. From March to June, I spent three long months scrambling to find a new job. What worried me the most was my father, who hasn’t worked in 20 years. In his mind, having a stable job is essential to living a proper life—anything less is irresponsible. I didn’t want to argue whether his perspective was right or wrong, but during those months of unemployment, his pressure weighed heavily on me.&lt;&#x2F;p&gt;
+&lt;p&gt;I spammed my resume across various job platforms, sending out dozens of applications every day, but hardly received any responses from HR. At first, I was confident in my years of experience as a software developer and aimed for an architect position. However, as time dragged on, I began to doubt my abilities and gradually lowered my expectations.&lt;&#x2F;p&gt;
+&lt;p&gt;Jobs that offered good pay, light workloads, and were close to home seemed out of reach. Fortunately, in June, I landed a backend development position at a medical equipment company. The software team I joined developed supporting software for hospital devices. Although the salary was only half of what I used to earn, the work was straightforward, and the company rarely required overtime. Just like that, I settled into a nine-to-five routine.&lt;&#x2F;p&gt;
+&lt;p&gt;My family was happy for me, but deep down, I knew this wasn’t what I truly wanted. I yearned for freedom and still had ambitions. I believed I was still young and should be doing something more meaningful, something cooler.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-new-beginning&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-new-beginning&quot; aria-label=&quot;Anchor link for: a-new-beginning&quot;&gt;A New Beginning&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;With over six years of experience in backend development and system architecture, I started to explore new fields. My first interest was artificial intelligence. I began searching for job openings in this area and quickly realized that to dive deep into AI development, a master’s degree in a related field was often required.&lt;&#x2F;p&gt;
+&lt;p&gt;My first thought was to pursue a master’s degree in computer science. In fact, I had already started preparing for the entrance exams earlier this year, but it wasn’t until I secured this job that I could truly focus on studying.&lt;&#x2F;p&gt;
+&lt;p&gt;So, during my free time after work, I began reviewing materials for the exams—calculus, linear algebra, algorithms, and data structures. However, it didn’t take long for my department manager to put a stop to it. He warned me not to spend time on these studies, claiming they were unrelated to my work.&lt;&#x2F;p&gt;
+&lt;p&gt;At first, I felt disheartened, but I didn’t give up. I knew that the path to pursuing my dreams would never be smooth. Even though my current reality felt restrictive, I still believed that the future held endless possibilities. I would continue to seek opportunities and strive toward my goals.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lights-out&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#lights-out&quot; aria-label=&quot;Anchor link for: lights-out&quot;&gt;Lights Out&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
+</feed>
