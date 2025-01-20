@@ -1,5 +1,5 @@
 +++
-title = "How to build a SSG by rust"
+title = "How to Build a Static Site Generator in Rust"
 date = "2025-01-20"
 draft = false
 
