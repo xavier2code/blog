@@ -20,7 +20,7 @@ Lifetimes are typically denoted by symbols such as 'a, 'b, etc. These symbols ar
 - Scope: The range in the code where a variable or reference is valid.
 - Lifetime: The duration for which a reference is valid relative to the data it borrows.
 
-For example:
+Example:
 
 ```rust
 fn main() {
@@ -64,6 +64,7 @@ In this example, the longest function's return value's lifetime is associated wi
 ### Lifetimes in Structs
 
 When a struct contains references, it is necessary to explicitly annotate the lifetime to ensure the validity of the struct instance.
+
 Example:
 
 ```rust
@@ -95,6 +96,7 @@ In this example, the Book struct contains two string slice references. The lifet
 ### Lifetime Elision Rules
 
 In some cases, the Rust compiler can automatically infer lifetimes, thus omitting explicit annotations.
+
 Example:
 
 ```rust

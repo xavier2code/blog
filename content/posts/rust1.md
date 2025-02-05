@@ -12,21 +12,32 @@ comment = true
 
 ## The Concept of Ownership
 
-In Rust, ownership is a set of rules that govern how memory is managed in a program. Unlike languages that use garbage collection (e.g., Java or Python), Rust manages memory through a system of ownership with a set of rules that the compiler checks at compile time. These rules ensure that memory is always valid and that there are no data races or undefined behavior.
+In Rust, ownership is a set of rules that govern how memory is managed in a program.
+Unlike languages that use garbage collection (e.g., Java or Python), Rust manages
+memory through a system of ownership with a set of rules that the compiler checks
+at compile time. These rules ensure that memory is always valid and that there are
+no data races or undefined behavior.
 The ownership system in Rust is based on three core rules:
-Each value in Rust has a single owner. At any given time, only one variable can own a value.
-When the owner goes out of scope, the value is dropped. When the owner variable goes out of scope, the value is automatically deallocated.
-Ownership can be transferred between variables. Ownership can be moved from one variable to another, but only one variable can own the value at a time.
+Each value in Rust has a single owner. At any given time, only one variable can own
+a value. When the owner goes out of scope, the value is dropped. When the owner variable
+goes out of scope, the value is automatically deallocated.
+Ownership can be transferred between variables. Ownership can be moved from one variable
+to another, but only one variable can own the value at a time.
 
 ## The Importance of Ownership
 
-Ownership is a fundamental concept in Rust that ensures memory safety without the need for a garbage collector. It helps prevent common bugs such as null pointer dereferencing, data races, and memory leaks. By enforcing these rules at compile time, Rust provides strong guarantees about the safety and correctness of code.
+Ownership is a fundamental concept in Rust that ensures memory safety without the
+need for a garbage collector. It helps prevent common bugs such as null pointer
+dereferencing, data races, and memory leaks. By enforcing these rules at compile
+time, Rust provides strong guarantees about the safety and correctness of code.
 
 ## Applications of Ownership
 
 ### Ownership and Variables
 
-When a variable is assigned a value, it becomes the owner of that value. When the variable goes out of scope, the value is dropped.
+When a variable is assigned a value, it becomes the owner of that value. When
+the variable goes out of scope, the value is dropped.
+
 Example:
 
 ```rust
@@ -45,6 +56,7 @@ In this example, s1 initially owns the String value. When s2 is assigned the val
 ### Ownership and Functions
 
 When a value is passed to a function, ownership is transferred to the function parameter. When the function returns, ownership is transferred back to the caller.
+
 Example:
 
 ```rust
@@ -66,6 +78,7 @@ In this example, when s is passed to take_ownership, ownership is transferred to
 Rust also allows borrowing values through references, which do not take ownership. References can be either mutable or immutable.
 Immutable references (&T) allow multiple references to the same data, but the data cannot be modified.
 Mutable references (&mut T) allow a single reference to modify the data, but no other references can exist at the same time.
+
 Example:
 
 ```rust
@@ -94,6 +107,7 @@ In this example, calculate_length takes an immutable reference to s1, allowing i
 ### Ownership and Structs
 
 Structs can own data, and when a struct is dropped, all of its owned data is also dropped.
+
 Example:
 
 ```rust
@@ -120,6 +134,7 @@ In this example, user1 owns the String values for email and username. When user2
 ### Ownership and Enums
 
 Enums can also own data, and when an enum is dropped, all of its owned data is also dropped.
+
 Example:
 
 ```rust
