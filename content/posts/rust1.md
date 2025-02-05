@@ -1,6 +1,6 @@
 +++
 title = "Ownership in rust"
-date = "2025-01-22"
+date = "2025-02-05"
 draft = false
 
 [taxonomies]
@@ -10,25 +10,134 @@ tags=["documentation", "rust"]
 comment = true
 +++
 
-All programs must interact with computer memory. How to request space from memory to store the program's runtime content, and how to release this space when it is no longer needed, have become critical issues and one of the major challenges in the design of all programming languages. Throughout the evolution of computer languages, three main schools of thought have emerged:
+## The Concept of Ownership
 
-- **Garbage Collection (GC):** Continuously identifies and reclaims memory that is no longer in use during program execution. Typical representatives: Java, Go.  
-- **Manual Memory Management:** Requires explicit allocation and deallocation of memory through function calls in the program. Typical representative: C++.  
-- **Memory Management through Ownership:** The compiler checks and enforces a set of rules at compile time to manage memory. Typical representative: Rust.
+In Rust, ownership is a set of rules that govern how memory is managed in a program. Unlike languages that use garbage collection (e.g., Java or Python), Rust manages memory through a system of ownership with a set of rules that the compiler checks at compile time. These rules ensure that memory is always valid and that there are no data races or undefined behavior.
+The ownership system in Rust is based on three core rules:
+Each value in Rust has a single owner. At any given time, only one variable can own a value.
+When the owner goes out of scope, the value is dropped. When the owner variable goes out of scope, the value is automatically deallocated.
+Ownership can be transferred between variables. Ownership can be moved from one variable to another, but only one variable can own the value at a time.
 
-Among these, **Rust** has chosen the third approach. The most remarkable aspect is that this checking occurs **only at compile time**, meaning there is **no runtime performance overhead** for the program.
+## The Importance of Ownership
 
-Since ownership is a novel concept, readers will need to invest some time to fully grasp it.
+Ownership is a fundamental concept in Rust that ensures memory safety without the need for a garbage collector. It helps prevent common bugs such as null pointer dereferencing, data races, and memory leaks. By enforcing these rules at compile time, Rust provides strong guarantees about the safety and correctness of code.
 
-## Here is an example of unsafe code that demonstrates the dangling pointer issue mentioned earlier
+## Applications of Ownership
+
+### Ownership and Variables
+
+When a variable is assigned a value, it becomes the owner of that value. When the variable goes out of scope, the value is dropped.
+Example:
 
 ```rust
-int* foo() {
-    int a;          // 变量a的作用域开始
-    a = 100;
-    char *c = "xyz";   // 变量c的作用域开始
-    return &a;
-}                   // 变量a和c的作用域结束
+fn main() {
+    let s1 = String::from("hello"); // s1 owns the String value
+    {
+        let s2 = s1; // s2 now owns the String value, s1 is no longer valid
+        println!("{}", s2);
+    } // s2 goes out of scope, the String value is dropped
+    // println!("{}", s1); // This would cause a compile-time error because s1 no longer owns the value
+}
 ```
 
-This code, although it can compile, is actually quite problematic. Both variables `a` and `c` are local variables. The function returns the address of the local variable `a`, but `a` resides on the stack. Once the function scope is exited, the stack memory allocated for `a` is reclaimed by the system, resulting in a **dangling pointer** issue. This is a classic example of a memory safety problem. While the code may compile successfully, it will cause errors at runtime. This issue is common in many programming languages.
+In this example, s1 initially owns the String value. When s2 is assigned the value of s1, ownership is transferred to s2, and s1 is no longer valid. When s2 goes out of scope, the String value is dropped.
+
+### Ownership and Functions
+
+When a value is passed to a function, ownership is transferred to the function parameter. When the function returns, ownership is transferred back to the caller.
+Example:
+
+```rust
+fn take_ownership(s: String) {
+    println!("{}", s);
+} // s is dropped here
+
+fn main() {
+    let s = String::from("hello");
+    take_ownership(s); // Ownership of s is transferred to the function
+    // println!("{}", s); // This would cause a compile-time error because s no longer owns the value
+}
+```
+
+In this example, when s is passed to take_ownership, ownership is transferred to the function parameter s. When the function ends, s is dropped, and the original variable s in main is no longer valid.
+
+### Borrowing and References
+
+Rust also allows borrowing values through references, which do not take ownership. References can be either mutable or immutable.
+Immutable references (&T) allow multiple references to the same data, but the data cannot be modified.
+Mutable references (&mut T) allow a single reference to modify the data, but no other references can exist at the same time.
+Example:
+
+```rust
+fn main() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1); // Immutable borrow
+    println!("The length of '{}' is {}.", s1, len);
+
+    let mut s2 = String::from("hello");
+    change(&mut s2); // Mutable borrow
+    println!("{}", s2);
+}
+
+fn calculate_length(s: &String) -> usize { // s is an immutable reference
+    s.len()
+} // s goes out of scope here, but it doesn't drop the String value
+
+fn change(s: &mut String) { // s is a mutable reference
+    s.push_str(", world");
+} // s goes out of scope here, but it doesn't drop the String value
+```
+
+In this example, calculate_length takes an immutable reference to s1, allowing it to read the length without taking ownership. change takes a mutable reference to s2, allowing it to modify the String value without taking ownership.
+
+### Ownership and Structs
+
+Structs can own data, and when a struct is dropped, all of its owned data is also dropped.
+Example:
+
+```rust
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {
+    let user1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        sign_in_count: 1,
+    };
+
+    let user2 = user1; // Ownership of user1's fields is transferred to user2
+    // println!("{}", user1.email); // This would cause a compile-time error because user1 no longer owns its fields
+}
+```
+
+In this example, user1 owns the String values for email and username. When user2 is assigned the value of user1, ownership of these fields is transferred to user2, and user1 is no longer valid.
+
+### Ownership and Enums
+
+Enums can also own data, and when an enum is dropped, all of its owned data is also dropped.
+Example:
+
+```rust
+enum IpAddr {
+    V4(String),
+    V6(String),
+}
+
+fn main() {
+    let home = IpAddr::V4(String::from("127.0.0.1"));
+
+    let loopback = home; // Ownership of home's data is transferred to loopback
+    // println!("{:?}", home); // This would cause a compile-time error because home no longer owns its data
+}
+```
+
+In this example, home owns the String value for the V4 variant. When loopback is assigned the value of home, ownership of the String value is transferred to loopback, and home is no longer valid.
+
+## Summary
+
+Ownership is a fundamental concept in Rust that ensures memory safety and prevents common bugs such as null pointer dereferencing and data races. By managing memory through a set of ownership rules, Rust provides strong guarantees about the safety and correctness of code. Understanding ownership is crucial for writing idiomatic and safe Rust programs.
