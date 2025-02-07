@@ -80,7 +80,7 @@ fn main() {
 
 Box<T> plays a crucial role in Rust's ownership system. When a Box<T> is dropped, it automatically deallocates the heap memory it manages. This ensures memory safety and prevents memory leaks.
 
-**Performance**
+## Performance
 
 Using Box<T> introduces some overhead because data is stored on the heap, and accessing heap memory is generally slower than accessing stack memory. However, this overhead is often acceptable, especially when dealing with large data structures or dynamic data.
 
