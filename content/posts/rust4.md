@@ -1,5 +1,5 @@
 +++
-title = "`format!` in rust"
+title = "Formatted Output in Rust"
 date = "2025-02-08"
 draft = false
 

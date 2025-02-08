@@ -1,5 +1,5 @@
 +++
-title = "Box in rust"
+title = "Box in Rust"
 date = "2025-02-07"
 draft = false
 

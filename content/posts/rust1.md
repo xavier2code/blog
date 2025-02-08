@@ -1,5 +1,5 @@
 +++
-title = "Ownership in rust"
+title = "Ownership in Rust"
 date = "2025-02-05"
 draft = false
 
