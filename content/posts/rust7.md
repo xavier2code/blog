@@ -27,7 +27,8 @@ if let Pattern = Expression {
 ## Use Cases
 
 1. **Handling `Option` Types**
-   The `Option` enum has two variants: `Some(T)` and `None`. The `if let` construct can be used to handle `Option` types and extract the value from `Some`.
+
+The `Option` enum has two variants: `Some(T)` and `None`. The `if let` construct can be used to handle `Option` types and extract the value from `Some`.
 
 ```rust
 fn main() {
@@ -44,7 +45,8 @@ fn main() {
 In this example, `if let Some(value) = option` attempts to match the `option` variable against the `Some` variant. If `option` is `Some(42)`, the value 42 is extracted into the variable value, and the `println!` statement is executed. If `option` is `None`, the else block is executed.
 
 2. **Handling `Result` Types**
-   The Result `enum` has two variants: `Ok(T)` and `Err(E)`. Similar to `Option`, `if let` can be used to handle `Result` types and extract the value from `Ok` or `Err`.
+
+The Result `enum` has two variants: `Ok(T)` and `Err(E)`. Similar to `Option`, `if let` can be used to handle `Result` types and extract the value from `Ok` or `Err`.
 
 ```rust
 fn main() {
@@ -61,7 +63,8 @@ fn main() {
 In this example, `if let Ok(value) = result` attempts to match the result variable against the `Ok` variant. If result is `Ok(42)``, the value 42 is extracted into the variable value, and the`println!``statement is executed. If result is`Err`, the else block is executed.
 
 3. **Handling Multiple Patterns**
-   `if let` can also be used to handle multiple patterns by using the `|` (or) operator.
+
+`if let` can also be used to handle multiple patterns by using the `|` (or) operator.
 
 ```rust
 fn main() {
