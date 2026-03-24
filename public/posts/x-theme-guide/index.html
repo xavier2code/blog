@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    
+    <!-- Google Fonts: Playfair Display + Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://example.com/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="https://example.com" class="nav-link ">HOME</a>
+                <a href="https://example.com/archives" class="nav-link ">ARCHIVE</a>
+                <a href="https://example.com/about" class="nav-link ">ABOUT</a>
+                <a href="https://example.com/contact" class="nav-link ">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        
+<article class="post-layout">
+    <header class="post-header">
+        
+        <span class="badge">Zola</span>
+        
+        <h1>x-theme 主题使用指南</h1>
+        <div class="post-meta">
+            <time datetime="2026-03-24">March 24, 2026</time>
+            
+            • Tags: theme, blog, zola, 90s
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <p><a rel="external" href="https://github.com/xavier2code/x-theme">x-theme</a> 是一款受 90 年代杂志印刷风格启发的 Zola 静态博客主题。它融合了复古美学与现代 Web 技术，提供独特的视觉体验。</p>
+<h2 id="zhu-ti-te-se">主题特色</h2>
+<h3 id="shi-jue-she-ji">视觉设计</h3>
+<ul>
+<li><strong>复古印刷风格</strong> - 大胆的标题、硬阴影效果</li>
+<li><strong>Google Fonts</strong> - Playfair Display (标题) + Noto Serif SC (正文)</li>
+<li><strong>响应式设计</strong> - 移动端友好的导航菜单</li>
+<li><strong>滚动字幕</strong> (Marquee) - 经典 90 年代风格的信息滚动条</li>
+</ul>
+<h3 id="yu-she-zu-jian">预设组件</h3>
+<ul>
+<li>粘性导航栏</li>
+<li>文章卡片带悬停动画</li>
+<li>分类标签 (Badge)</li>
+<li>上一篇/下一篇导航</li>
+<li>分页支持</li>
+</ul>
+<h2 id="kuai-su-kai-shi">快速开始</h2>
+<h3 id="1-an-zhuang-zhu-ti">1. 安装主题</h3>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support">cd</span><span class="z-string"> your-zola-site</span></span>
+<span class="giallo-l"><span class="z-entity z-name">git</span><span class="z-string"> submodule add git@github.com:xavier2code/x-theme.git themes/x-theme</span></span></code></pre><h3 id="2-pei-zhi-zola-toml">2. 配置 zola.toml</h3>
+<pre class="giallo z-code"><code data-lang="toml"><span class="giallo-l"><span class="z-variable z-other">base_url =</span><span class="z-punctuation z-definition z-string z-string"> &quot;https://your-site.com&quot;</span></span>
+<span class="giallo-l"><span class="z-variable z-other">title =</span><span class="z-punctuation z-definition z-string z-string"> &quot;My Blog&quot;</span></span>
+<span class="giallo-l"><span class="z-variable z-other">theme =</span><span class="z-punctuation z-definition z-string z-string"> &quot;x-theme&quot;</span></span>
+<span class="giallo-l"><span class="z-variable z-other">compile_sass =</span><span class="z-constant"> true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-variable z-other">taxonomies = [</span></span>
+<span class="giallo-l"><span class="z-variable z-other">    { name =</span><span class="z-punctuation z-definition z-string z-string"> &quot;categories&quot;</span><span class="z-variable z-other">, feed =</span><span class="z-constant"> true</span><span> },</span></span>
+<span class="giallo-l"><span class="z-variable z-other">    { name =</span><span class="z-punctuation z-definition z-string z-string"> &quot;tags&quot;</span><span class="z-variable z-other">, feed =</span><span class="z-constant"> true</span><span> }</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>[</span><span class="z-entity z-name">extra</span><span>]</span></span>
+<span class="giallo-l"><span class="z-variable z-other">marquee_text =</span><span class="z-punctuation z-definition z-string z-string"> &quot;★ WELCOME TO MY BLOG ★&quot;</span></span></code></pre><h2 id="nei-rong-zu-zhi">内容组织</h2>
+<h3 id="mu-lu-jie-gou">目录结构</h3>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>content/</span></span>
+<span class="giallo-l"><span>├── _index.md          # 首页</span></span>
+<span class="giallo-l"><span>├── posts/</span></span>
+<span class="giallo-l"><span>│   ├── _index.md      # 文章列表页</span></span>
+<span class="giallo-l"><span>│   └── hello-world.md # 文章</span></span>
+<span class="giallo-l"><span>├── archives/</span></span>
+<span class="giallo-l"><span>│   └── _index.md      # 归档页</span></span>
+<span class="giallo-l"><span>├── about/</span></span>
+<span class="giallo-l"><span>│   └── _index.md      # 关于页</span></span>
+<span class="giallo-l"><span>└── contact/</span></span>
+<span class="giallo-l"><span>    └── _index.md      # 联系页</span></span></code></pre><h3 id="wen-zhang-front-matter">文章 Front Matter</h3>
+<pre class="giallo z-code"><code data-lang="markdown"><span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"><span>title = &quot;文章标题&quot;</span></span>
+<span class="giallo-l"><span>date = 2026-03-24</span></span>
+<span class="giallo-l"><span>draft = false</span></span>
+<span class="giallo-l"><span>description = &quot;文章描述，会显示在列表页&quot;</span></span>
+<span class="giallo-l"><span>[</span><span class="z-string z-other z-link">taxonomies</span><span>]</span></span>
+<span class="giallo-l"><span>categories = [</span><span class="z-string z-other z-link">&quot;技术&quot;</span><span>]</span></span>
+<span class="giallo-l"><span>tags = [&quot;zola&quot;, &quot;blog&quot;]</span></span>
+<span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>正文内容...</span></span></code></pre><h3 id="te-se-tu-pian">特色图片</h3>
+<p>在文章 front matter 中添加 <code>extra.image</code> 即可在首页显示特色图片：</p>
+<pre class="giallo z-code"><code data-lang="markdown"><span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"><span>title = &quot;带图片的文章&quot;</span></span>
+<span class="giallo-l"><span>date = 2026-03-24</span></span>
+<span class="giallo-l"><span>[</span><span class="z-string z-other z-link">extra</span><span>]</span></span>
+<span class="giallo-l"><span>image = &quot;/images/cover.jpg&quot;</span></span>
+<span class="giallo-l"><span>+++</span></span></code></pre><h2 id="zi-ding-yi-pei-zhi">自定义配置</h2>
+<h3 id="gun-dong-zi-mu-wen-zi">滚动字幕文字</h3>
+<pre class="giallo z-code"><code data-lang="toml"><span class="giallo-l"><span>[</span><span class="z-entity z-name">extra</span><span>]</span></span>
+<span class="giallo-l"><span class="z-variable z-other">marquee_text =</span><span class="z-punctuation z-definition z-string z-string"> &quot;★ 自定义文字 ★ 支持 ★ 特殊符号 ★&quot;</span></span></code></pre><h3 id="jin-yong-gun-dong-zi-mu">禁用滚动字幕</h3>
+<pre class="giallo z-code"><code data-lang="toml"><span class="giallo-l"><span>[</span><span class="z-entity z-name">extra</span><span>]</span></span>
+<span class="giallo-l"><span class="z-variable z-other">marquee_text =</span><span class="z-punctuation z-definition z-string"> &quot;&quot;</span></span></code></pre><h2 id="kai-fa-ming-ling">开发命令</h2>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># 本地预览</span></span>
+<span class="giallo-l"><span class="z-entity z-name">zola</span><span class="z-string"> serve</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># 监听所有接口 (移动端测试)</span></span>
+<span class="giallo-l"><span class="z-entity z-name">zola</span><span class="z-string"> serve</span><span class="z-constant"> --interface 0.0.0.0 --port 1111</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># 生产构建</span></span>
+<span class="giallo-l"><span class="z-entity z-name">zola</span><span class="z-string"> build</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># 检查错误</span></span>
+<span class="giallo-l"><span class="z-entity z-name">zola</span><span class="z-string"> check</span></span></code></pre><h2 id="mo-ban-jie-gou">模板结构</h2>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>themes/x-theme/templates/</span></span>
+<span class="giallo-l"><span>├── base.html          # 基础模板 (导航、页脚)</span></span>
+<span class="giallo-l"><span>├── home.html          # 首页 (最新文章 + 侧边栏)</span></span>
+<span class="giallo-l"><span>├── section.html       # 章节页 (归档、分类)</span></span>
+<span class="giallo-l"><span>├── list.html          # 文章列表 (带分页)</span></span>
+<span class="giallo-l"><span>└── page.html          # 单篇文章页</span></span></code></pre><h2 id="yang-shi-ding-zhi">样式定制</h2>
+<p>主题使用 Sass 构建，变量定义在 <code>themes/x-theme/sass/_variables.scss</code>：</p>
+<pre class="giallo z-code"><code data-lang="scss"><span class="giallo-l"><span class="z-variable">$primary-color</span><span>:</span><span class="z-constant"> #2563eb</span><span>;</span><span class="z-punctuation z-definition z-comment z-comment">    // 主色调</span></span>
+<span class="giallo-l"><span class="z-variable">$accent-color</span><span>:</span><span class="z-constant"> #ff6b35</span><span>;</span><span class="z-punctuation z-definition z-comment z-comment">     // 强调色</span></span>
+<span class="giallo-l"><span class="z-variable">$text-color</span><span>:</span><span class="z-constant"> #1a1a1a</span><span>;</span><span class="z-punctuation z-definition z-comment z-comment">       // 正文颜色</span></span>
+<span class="giallo-l"><span class="z-variable">$border</span><span>:</span><span class="z-constant"> 3</span><span class="z-keyword">px</span><span class="z-support z-constant"> solid black</span><span>;</span><span class="z-punctuation z-definition z-comment z-comment">   // 边框厚度</span></span></code></pre>
+<hr />
+<p>主题项目地址: <a rel="external" href="https://github.com/xavier2code/x-theme">github.com/xavier2code/x-theme</a></p>
+
+    </div>
+    
+    <nav class="post-nav">
+        
+        
+    </nav>
+</article>
+
+    </main>
+
+    <!-- Marquee Ticker -->
+    
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>★ WELCOME TO MY BLOG ★</span>
+            <span aria-hidden="true">★ WELCOME TO MY BLOG ★</span>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Blog. Built with Zola.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+            </div>
+        </div>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    
+    if (toggle && links) {
+        toggle.addEventListener('click', function() {
+            toggle.classList.toggle('open');
+            links.classList.toggle('open');
+        });
+    }
+});
+</script>
+</body>
+</html>

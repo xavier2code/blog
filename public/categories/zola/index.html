@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    
+    <!-- Google Fonts: Playfair Display + Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://example.com/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="https://example.com" class="nav-link ">HOME</a>
+                <a href="https://example.com/archives" class="nav-link ">ARCHIVE</a>
+                <a href="https://example.com/about" class="nav-link ">ABOUT</a>
+                <a href="https://example.com/contact" class="nav-link ">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        
+<div class="post-layout">
+    <header class="post-header">
+        <span class="badge">Zola</span>
+        <h1>Zola</h1>
+        <div class="post-meta">
+            1 posts
+        </div>
+    </header>
+    
+    <div class="post-content">
+        
+        <article style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ccc;">
+            <h2><a href="https:&#x2F;&#x2F;example.com&#x2F;posts&#x2F;x-theme-guide&#x2F;">x-theme 主题使用指南</a></h2>
+            <p class="card-meta">March 24, 2026</p>
+            
+            <p>90年代复古印刷风格的 Zola 博客主题，具有醒目的排版、硬阴影和怀旧的滚动字幕</p>
+            
+        </article>
+        
+    </div>
+</div>
+
+    </main>
+
+    <!-- Marquee Ticker -->
+    
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>★ WELCOME TO MY BLOG ★</span>
+            <span aria-hidden="true">★ WELCOME TO MY BLOG ★</span>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Blog. Built with Zola.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+            </div>
+        </div>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    
+    if (toggle && links) {
+        toggle.addEventListener('click', function() {
+            toggle.classList.toggle('open');
+            links.classList.toggle('open');
+        });
+    }
+});
+</script>
+</body>
+</html>

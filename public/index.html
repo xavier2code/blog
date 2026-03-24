@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    
+    <!-- Google Fonts: Playfair Display + Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://example.com/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="https://example.com" class="nav-link active">HOME</a>
+                <a href="https://example.com/archives" class="nav-link ">ARCHIVE</a>
+                <a href="https://example.com/about" class="nav-link ">ABOUT</a>
+                <a href="https://example.com/contact" class="nav-link ">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        
+<div class="home-grid">
+    
+    
+    
+    <article class="hero-post">
+        <div class="card">
+            
+            <div class="card-image" style="background: linear-gradient(135deg, #2563eb 0%, #ff6b35 100%);"></div>
+            
+            <div class="card-content">
+                
+                <h2 class="card-title"><a href="https:&#x2F;&#x2F;example.com&#x2F;posts&#x2F;hello-world&#x2F;">Hello World</a></h2>
+                <p class="card-meta">March 24, 2026</p>
+                <p class="card-excerpt"></p>
+                <a href="https:&#x2F;&#x2F;example.com&#x2F;posts&#x2F;hello-world&#x2F;" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </article>
+    
+    
+    <aside class="sidebar-posts">
+        
+        <article class="card">
+            
+            <span class="badge">Zola</span>
+            
+            <h3 class="card-title"><a href="https:&#x2F;&#x2F;example.com&#x2F;posts&#x2F;x-theme-guide&#x2F;">x-theme 主题使用指南</a></h3>
+            <p class="card-meta">March 24, 2026</p>
+        </article>
+        
+    </aside>
+</div>
+
+    </main>
+
+    <!-- Marquee Ticker -->
+    
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>★ WELCOME TO MY BLOG ★</span>
+            <span aria-hidden="true">★ WELCOME TO MY BLOG ★</span>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Blog. Built with Zola.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+            </div>
+        </div>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    
+    if (toggle && links) {
+        toggle.addEventListener('click', function() {
+            toggle.classList.toggle('open');
+            links.classList.toggle('open');
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -4,9 +4,9 @@
 
 **Goal:** Enable Zola syntax highlighting with 90s neon print aesthetic for x-theme
 
-**Architecture:** Enable Zola's built-in syntax highlighter via config, create custom SCSS with neon color classes that override Zola's Chroma output, apply matching styles to inline code and code blocks with hard shadow effect.
+**Architecture:** Enable Zola's built-in syntax highlighter via config with `style = "class"`, create custom SCSS that overrides Zola's Giallo CSS output with neon color classes matching the 90s print aesthetic.
 
-**Tech Stack:** Zola (built-in syntax highlighting), SCSS
+**Tech Stack:** Zola 0.22 (built-in syntax highlighting via Giallo), SCSS
 
 ---
 
@@ -14,26 +14,27 @@
 
 | File | Action |
 |------|--------|
-| `zola.toml` | Modify - add `[markdown]` section with `highlight_code = true` |
-| `themes/x-theme/sass/_syntax.scss` | Create - neon syntax color classes |
+| `zola.toml` | Modify - add `[markdown.highlighting]` section |
+| `themes/x-theme/sass/_syntax.scss` | Create - neon Giallo color overrides |
 | `themes/x-theme/sass/main.scss` | Modify - add `@import "syntax";` |
 | `themes/x-theme/sass/_layout.scss` | Modify - update pre/code block styles |
+| `themes/x-theme/templates/base.html` | Modify - add giallo.css link |
 
 ---
 
-## Task 1: Enable Zola Syntax Highlighting
+## Task 1: Enable Zola Syntax Highlighting (COMPLETED)
 
 **Files:**
 - Modify: `zola.toml`
 
-- [ ] **Step 1: Add markdown highlight config to zola.toml**
-
-Read current `zola.toml` and add:
-
+**Correct config for Zola 0.22:**
 ```toml
-[markdown]
-highlight_code = true
+[markdown.highlighting]
+style = "class"
+theme = "github-dark"
 ```
+
+Note: `style = "class"` generates CSS classes instead of inline styles. Zola will generate `giallo.css` in the static folder.
 
 ---
 
@@ -42,101 +43,123 @@ highlight_code = true
 **Files:**
 - Create: `themes/x-theme/sass/_syntax.scss`
 
-- [ ] **Step 1: Create _syntax.scss with neon color classes**
+- [ ] **Step 1: Create _syntax.scss with neon Giallo color overrides**
 
 ```scss
 /* 90s Neon Print Syntax Highlighting */
+/* Overrides Zola's giallo.css with custom neon colors */
 
-.highlight {
-    background: #0d0d0d;
+@import url("/giallo.css");
+
+/* Base code styling */
+.z-code {
+    background-color: #0d0d0d;
     color: #f0f0f0;
 }
 
-// Comments
-.chroma {
-    background: #0d0d0d;
-    color: #f0f0f0;
+/* Line highlighting */
+.z-hl {
+    background-color: #1a1a1a !important;
 }
 
-.chroma .c { color: #666666; font-style: italic; } /* Comment */
-.chroma .cm { color: #666666; font-style: italic; } /* Comment.Multiline */
-.chroma .cp { color: #666666; } /* Comment.Preproc */
-.chroma .c1 { color: #666666; font-style: italic; } /* Comment.Single */
-.chroma .cs { color: #666666; font-style: italic; } /* Comment.Special */
-
-// Keywords (orange - main accent)
-.chroma .k { color: #ff6b35; font-weight: bold; } /* Keyword */
-.chroma .kc { color: #ff6b35; font-weight: bold; } /* Keyword.Constant */
-.chroma .kd { color: #ff6b35; font-weight: bold; } /* Keyword.Declaration */
-.chroma .kn { color: #ff6b35; font-weight: bold; } /* Keyword.Namespace */
-.chroma .kp { color: #ff6b35; font-weight: bold; } /* Keyword.Pseudo */
-.chroma .kr { color: #ff6b35; font-weight: bold; } /* Keyword.Reserved */
-.chroma .kt { color: #ff6b35; font-weight: bold; } /* Keyword.Type */
-
-// Strings (electric pink)
-.chroma .s { color: #ff6b9d; } /* String */
-.chroma .sa { color: #ff6b9d; } /* String.Addy */
-.chroma .sb { color: #ff6b9d; } /* String.Backtick */
-.chroma .sc { color: #ff6b9d; } /* String.Char */
-.chroma .dl { color: #ff6b9d; } /* String.Delimiter */
-.chroma .sd { color: #ff6b9d; } /* String.Doc */
-.chroma .se { color: #ff6b9d; font-weight: bold; } /* String.Escape */
-.chroma .sh { color: #ff6b9d; } /* String.Heredoc */
-.chroma .si { color: #ff6b9d; } /* String.Interpol */
-.chroma .sx { color: #ff6b9d; } /* String.Other */
-.chroma .sr { color: #ff6b9d; } /* String.Regex */
-.chroma .s1 { color: #ff6b9d; } /* String.Single */
-.chroma .s2 { color: #ff6b9d; } /* String.Double */
-
-// Functions (cyan)
-.chroma .nf { color: #00d4ff; } /* Name.Function */
-.chroma .fm { color: #00d4ff; } /* Name.Function.Magic */
-.chroma .py { color: #00d4ff; } /* Name.Property */
-.chroma .nb { color: #00d4ff; } /* Name.Builtin */
-.chroma .bp { color: #00d4ff; } /* Name.Builtin.Pseudo */
-
-// Types/Classes (neon green)
-.chroma .nc { color: #39ff14; font-weight: bold; } /* Name.Class */
-.chroma .nn { color: #39ff14; } /* Name.Namespace */
-.chroma .no { color: #39ff14; } /* Name.Constant */
-.chroma .nd { color: #39ff14; } /* Name.Decorator */
-.chroma .ni { color: #39ff14; } /* Name.Entity */
-.chroma .nl { color: #39ff14; } /* Name.Label */
-.chroma .nt { color: #39ff14; } /* Name.Tag */
-
-// Numbers/Constants (bright yellow)
-.chroma .m { color: #ffd93d; font-weight: bold; } /* Literal.Number */
-.chroma .mb { color: #ffd93d; font-weight: bold; } /* Literal.Number.Bin */
-.chroma .mf { color: #ffd93d; font-weight: bold; } /* Literal.Number.Float */
-.chroma .mh { color: #ffd93d; font-weight: bold; } /* Literal.Number.Hex */
-.chroma .mi { color: #ffd93d; font-weight: bold; } /* Literal.Number.Integer */
-.chroma .mo { color: #ffd93d; font-weight: bold; } /* Literal.Number.Oct */
-.chroma .il { color: #ffd93d; font-weight: bold; } /* Literal.Number.Integer.Long */
-.chroma .a { color: #ffd93d; } /* Literal.Affix */
-.chroma .o { color: #ffd93d; } /* Literal.Operator */
-
-// HTML/XML Tags (hot pink)
-.chroma .p { color: #ff69b4; } /* Punctuation */
-.chroma .ow { color: #ff69b4; font-weight: bold; } /* Operator.Word */
-
-// Variables/Attributes (white)
-.chroma .n { color: #f0f0f0; } /* Name */
-.chroma .nv { color: #f0f0f0; } /* Name.Variable */
-.chroma .vc { color: #f0f0f0; } /* Name.Variable.Class */
-.chroma .vg { color: #f0f0f0; } /* Name.Variable.Global */
-.chroma .vi { color: #f0f0f0; } /* Name.Variable.Instance */
-
-// Error/Warning
-.chroma .err { color: #ff0000; background: #0d0d0d; } /* Error */
-.chroma .w { color: #666666; } /* Generic.Whitespace */
-
-// Line numbers
-.chroma .ln {
-    user-select: none;
+/* Line numbers */
+.giallo-ln {
     color: #444;
-    border-right: 1px solid #333;
-    padding-right: 8px;
-    margin-right: 12px;
+    user-select: none;
+}
+
+/* Comments - Gray italic */
+.z-comment { color: #666666; font-style: italic; }
+
+/* Keywords - Neon Orange (main accent) */
+.z-keyword,
+.z-storage {
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+/* Strings - Electric Pink */
+.z-string,
+.z-source {
+    color: #ff6b9d;
+}
+
+/* Functions/Support - Cyan */
+.z-support,
+.z-entity.z-name.z-function,
+.z-meta.z-module-reference {
+    color: #00d4ff;
+}
+
+/* Types/Classes - Neon Green */
+.z-entity.z-name.z-tag,
+.z-storage.z-type {
+    color: #39ff14;
+    font-weight: bold;
+}
+
+/* Constants/Numbers - Bright Yellow */
+.z-constant,
+.z-support.z-constant {
+    color: #ffd93d;
+    font-weight: bold;
+}
+
+/* Variables - Off-white */
+.z-variable,
+.z-variable.z-other {
+    color: #f0f0f0;
+}
+
+/* Operators/Punctuation - White */
+.z-punctuation,
+.z-operator {
+    color: #ffffff;
+}
+
+/* HTML/XML Tags - Hot Pink */
+.z-meta.z-tag,
+.z-brackethighlighter.z-tag {
+    color: #ff69b4;
+}
+
+/* Markup/Headings - Cyan */
+.z-markup.z-heading {
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+/* Quotes - Neon Green */
+.z-markup.z-quote {
+    color: #85e89d;
+}
+
+/* Deleted/Inserted - Red/Green */
+.z-markup.z-deleted {
+    color: #ff0000;
+    background-color: #86181d;
+}
+
+.z-markup.z-inserted {
+    color: #85e89d;
+    background-color: #144620;
+}
+
+/* Invalid/Broken - Bright Red */
+.z-invalid {
+    color: #ff0000;
+    font-style: italic;
+}
+
+/* Error message */
+.z-message.z-error {
+    color: #ff0000;
+}
+
+/* Regex */
+.z-string.z-regexp,
+.z-source.z-regexp {
+    color: #dbedff;
 }
 ```
 
@@ -185,7 +208,7 @@ Find the existing `pre` and `code` styles in `.post-content` and replace with:
         background: #0d0d0d;
         color: #ff6b35;
         padding: 2px 6px;
-        border: 2px solid #ff6b35;
+        border: 1px solid #ff6b35;
         font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
         font-size: 0.9em;
     }
@@ -225,8 +248,11 @@ Run: `zola build`
 - [ ] **Step 2: Verify syntax highlighting works**
 
 Check `public/posts/x-theme-guide/index.html` for:
-- `<pre class="highlight">` with Chroma classes
-- Colors applied to code tokens
+- `<pre class="giallo z-code">` with Giallo classes
+- Colors applied to code tokens (via CSS)
+
+Check `public/main.css` for:
+- Custom neon color overrides
 
 ---
 
