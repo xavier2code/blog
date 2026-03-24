@@ -1,0 +1,17 @@
+base_url = "https://example.com"
+title = "My Blog"
+compile_sass = true
+build_search_index = false
+theme = "x-theme"
+
+taxonomies = [
+    { name = "categories", feed = true },
+    { name = "tags", feed = true }
+]
+
+[markdown.highlighting]
+style = "class"
+theme = "github-dark"
+
+[extra]
+marquee_text = "★ WELCOME TO MY BLOG ★"
