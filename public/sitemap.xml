@@ -1,47 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://example.com/</loc>
+        <loc>https://xavier2code.github.io/blog/</loc>
     </url>
     <url>
-        <loc>https://example.com/about/</loc>
+        <loc>https://xavier2code.github.io/blog/about/</loc>
+        <lastmod>2026-01-01</lastmod>
     </url>
     <url>
-        <loc>https://example.com/archives/</loc>
+        <loc>https://xavier2code.github.io/blog/archives/</loc>
     </url>
     <url>
-        <loc>https://example.com/categories/</loc>
+        <loc>https://xavier2code.github.io/blog/categories/</loc>
     </url>
     <url>
-        <loc>https://example.com/categories/zola/</loc>
+        <loc>https://xavier2code.github.io/blog/categories/terminal/</loc>
     </url>
     <url>
-        <loc>https://example.com/contact/</loc>
+        <loc>https://xavier2code.github.io/blog/categories/zola/</loc>
     </url>
     <url>
-        <loc>https://example.com/posts/</loc>
+        <loc>https://xavier2code.github.io/blog/contact/</loc>
+        <lastmod>2026-01-01</lastmod>
     </url>
     <url>
-        <loc>https://example.com/posts/hello-world/</loc>
+        <loc>https://xavier2code.github.io/blog/posts/</loc>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/posts/ohmyzsh-vs-starship/</loc>
+        <lastmod>2026-03-25</lastmod>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/posts/x-theme-guide/</loc>
         <lastmod>2026-03-24</lastmod>
     </url>
     <url>
-        <loc>https://example.com/posts/x-theme-guide/</loc>
-        <lastmod>2026-03-24</lastmod>
+        <loc>https://xavier2code.github.io/blog/tags/</loc>
     </url>
     <url>
-        <loc>https://example.com/tags/</loc>
+        <loc>https://xavier2code.github.io/blog/tags/90s/</loc>
     </url>
     <url>
-        <loc>https://example.com/tags/90s/</loc>
+        <loc>https://xavier2code.github.io/blog/tags/blog/</loc>
     </url>
     <url>
-        <loc>https://example.com/tags/blog/</loc>
+        <loc>https://xavier2code.github.io/blog/tags/fish/</loc>
     </url>
     <url>
-        <loc>https://example.com/tags/theme/</loc>
+        <loc>https://xavier2code.github.io/blog/tags/oh-my-zsh/</loc>
     </url>
     <url>
-        <loc>https://example.com/tags/zola/</loc>
+        <loc>https://xavier2code.github.io/blog/tags/starship/</loc>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/tags/theme/</loc>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/tags/tool/</loc>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/tags/zola/</loc>
+    </url>
+    <url>
+        <loc>https://xavier2code.github.io/blog/tags/zsh/</loc>
     </url>
 </urlset>

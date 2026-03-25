@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://xavier2code.github.io/blog/sitemap.xml
