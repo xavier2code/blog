@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% set lang = current_path | truncate(l=3, end="") | trim(start="/") %}
+{% if lang != "en" %}{% set_global lang = "zh" %}{% endif %}
+{% set i18n = load_data(path="themes/x-theme/i18n/" ~ lang ~ ".toml") %}
 <h1 style="margin-bottom: 2rem; border-bottom: 3px solid black; padding-bottom: 1rem;">
     {{ section.title }}
 </h1>
+{% set posts = get_section(path="posts/_index.md") %}
+<p class="post-count">{{ posts.pages | length }} {{ i18n.common.posts }}</p>
 
 {% if section.content %}
 <div class="section-intro">
@@ -11,7 +16,6 @@
 </div>
 {% endif %}
 
-{% set posts = get_section(path="posts/_index.md") %}
 {% set_global current_year = "" %}
 {% for page in posts.pages | sort(attribute="date") | reverse %}
 {% set page_year = page.date | date(format="%Y") %}
