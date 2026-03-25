@@ -1,3 +1,3 @@
 [submodule "themes/x-theme"]
 	path = themes/x-theme
-	url = git@github.com:xavier2code/x-theme.git
+	url = https://github.com/xavier2code/x-theme.git
