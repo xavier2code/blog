@@ -15,3 +15,6 @@ theme = "github-dark"
 
 [extra]
 marquee_text = "★ WELCOME TO MY BLOG ★"
+
+[languages.en.translations]
+path = "themes/x-theme/i18n/en.toml"
