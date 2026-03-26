@@ -4,8 +4,8 @@ date = 2026-01-01
 render = true
 +++
 
-我是 **xavier2code**，一个在代码和文字之间来回横跳的独立开发者。白天写工程代码，晚上写技术博客，偶尔折腾设计和排版。
+I'm **xavier2code**, an independent developer who switches between code and writing. Coding projects during the day, technical blogging at night, occasionally tinkering with design and typography.
 
-这个 blog 用 **Zola** 搭建，部署在 **GitHub Pages**，跑在 **OpenClaw** 上——是的，连 blog 的更新都是 AI 在自动完成的。
+This blog is built with **Zola**, deployed on **GitHub Pages**, running on **OpenClaw** — yes, even the blog updates are automated by AI.
 
-关注领域：**AI 大模型，开源工具、全栈开发**。业余时间研究 90 年代平面设计和复古排版美学。
+Areas of focus: **AI/LLM, open-source tools, full-stack development**. In my spare time, I study 90s graphic design and retro typography aesthetics.
