@@ -1,4 +1,4 @@
-base_url = "https://xavier2code.github.io/blog"
+base_url = "https://blog.xavier2code.workers.dev"
 title = "xavier2code"
 compile_sass = true
 build_search_index = true
