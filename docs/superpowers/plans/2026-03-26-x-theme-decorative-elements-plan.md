@@ -68,7 +68,7 @@ Expected: Build succeeds
 .post-content blockquote.pull-quote {
     font-size: 1.5rem;
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem;
     margin: 2rem auto;
     max-width: 80%;
     border: none;
@@ -78,7 +78,7 @@ Expected: Build succeeds
     transform: rotate(-1deg);
     background: $accent-light;
     
-    // Decorative quote marks
+    // Large decorative quote mark (top center)
     &::before {
         content: '"';
         font-family: $font-heading;
@@ -86,35 +86,30 @@ Expected: Build succeeds
         font-weight: 900;
         color: $accent-color;
         position: absolute;
-        top: -1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: $bg-color;
-        padding: 0 0.5rem;
-    }
-    
-    // Geometric corner decorations (4 corners)
-    &::before {
-        content: '◆';
-        font-size: 1rem;
-        color: $accent-color;
-        position: absolute;
         top: -0.5rem;
-        left: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%) rotate(-10deg);
         background: $bg-color;
-        padding: 0 0.25rem;
+        padding: 0 0.75rem;
+        line-height: 1;
     }
     
+    // Corner diamond decorations
+    // Top-left corner
     &::after {
         content: '◆';
         font-size: 1rem;
         color: $accent-color;
         position: absolute;
-        bottom: -0.5rem;
-        right: -0.5rem;
+        top: 0.5rem;
+        left: 0.5rem;
         background: $bg-color;
-        padding: 0 0.25rem;
+        padding: 0.25rem;
+        line-height: 1;
     }
+    
+    // For bottom-right corner, we need a wrapper span in HTML
+    // Alternatively, use border tricks or a nested element
     
     p {
         margin-bottom: 0;
@@ -123,10 +118,22 @@ Expected: Build succeeds
     
     @media (max-width: 768px) {
         font-size: 1.25rem;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem 1rem;
         max-width: 100%;
+        
+        &::before {
+            font-size: 3rem;
+        }
     }
 }
+```
+
+**Note:** For full 4-corner decoration, the HTML needs a wrapper span. The pure CSS version uses 2 corners (top-left via `::after` and quote mark above). If 4 corners are needed, add this HTML:
+```html
+<blockquote class="pull-quote">
+  <span class="pull-quote-corner"></span>
+  <p>Quote text here</p>
+</blockquote>
 ```
 
 - [ ] **Step 2: Test by building site**
