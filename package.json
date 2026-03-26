@@ -1,0 +1,9 @@
+{
+  "name": "xavier2code-blog",
+  "version": "1.0.0",
+  "description": "Zola blog - Cloudflare Pages",
+  "scripts": {
+    "build": "zola build",
+    "prebuild": "bash scripts/setup-zola.sh"
+  }
+}
