@@ -3,6 +3,8 @@ title = "x-theme 主题使用指南"
 date = 2026-03-24
 draft = false
 description = "90年代复古印刷风格的 Zola 博客主题，具有醒目的排版、硬阴影和怀旧的滚动字幕"
+[extra]
+cover = "/images/posts/x-theme-guide.png"
 [taxonomies]
 categories = ["Zola"]
 tags = ["theme", "blog", "zola", "90s"]

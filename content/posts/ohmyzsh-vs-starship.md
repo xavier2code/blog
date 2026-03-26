@@ -2,6 +2,8 @@
 title = "ZSH 扩展对比：Oh My ZSH vs Starship"
 date = 2026-03-25
 draft = false
+[extra]
+cover = "/images/posts/ohmyzsh-vs-starship.png"
 [taxonomies]
 categories = ["Terminal"]
 tags = ["zsh", "starship", "fish", "oh-my-zsh", "tool"]
