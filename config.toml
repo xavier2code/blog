@@ -15,8 +15,8 @@ theme = "github-dark"
 
 [extra]
 marquee_text = "★ WELCOME ★"
-marquee_about = "★ ABOUT · xavier2code ★"
-marquee_archive = "★ ARCHIVE · ALL POSTS ★"
+marquee_about = "ABOUT · xavier2code · FULL-STACK DEVELOPER · WUHAN, CHINA"
+marquee_archive = "ARCHIVE · ALL POSTS · CHRONOLOGICAL ORDER · UPDATED DAILY · SINCE 2026 · 90s PRINT MAGAZINE BLOG"
 github_url = "https://github.com/xavier2code"
 
 [languages.en.translations]
