@@ -76,9 +76,9 @@ Expected: Build succeeds
     transform: rotate(-1deg);
     background: $accent-light;
     
-    // Thick accent border top (Memphis style)
-    border-top: 6px solid $border-color;
-    border-bottom: 6px solid $border-color;
+    // Thick accent border top/bottom (Memphis style)
+    border-top: 3px solid $border-color;
+    border-bottom: 3px solid $border-color;
     
     // Large decorative quote mark via pseudo-element
     &::before {
@@ -96,17 +96,17 @@ Expected: Build succeeds
         line-height: 1;
     }
     
-    // Corner diamond (bottom-right) via pseudo-element
+    // Corner circle (bottom-right) via pseudo-element
     &::after {
-        content: '◆';
-        font-size: 1.25rem;
-        color: $accent-color;
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: $accent-color;
+        border: 2px solid $border-color;
+        border-radius: 50%;
         position: absolute;
-        bottom: -0.75rem;
+        bottom: -10px;
         right: 1rem;
-        background: $bg-color;
-        padding: 0 0.25rem;
-        line-height: 1;
     }
     
     p {
@@ -127,18 +127,17 @@ Expected: Build succeeds
 }
 ```
 
-**Enhanced version with 4 corners (requires HTML wrapper spans):**
+**Enhanced version with 4 circle corners (requires HTML spans):**
 ```scss
-// Add to pull-quote for 4-corner decoration
+// Additional CSS for 4-corner decoration
 .post-content blockquote.pull-quote {
-    // ... base styles above ...
-    
     .corner {
         position: absolute;
         width: 16px;
         height: 16px;
         background: $accent-color;
-        border: 3px solid $border-color;
+        border: 2px solid $border-color;
+        border-radius: 50%;
         
         &.tl { top: -8px; left: -8px; }
         &.tr { top: -8px; right: -8px; }
@@ -154,34 +153,6 @@ With HTML:
   <span class="corner tr"></span>
   <span class="corner bl"></span>
   <span class="corner br"></span>
-  <p>Quote text here</p>
-</blockquote>
-```
-    
-    // For bottom-right corner, we need a wrapper span in HTML
-    // Alternatively, use border tricks or a nested element
-    
-    p {
-        margin-bottom: 0;
-        font-style: normal;
-    }
-    
-    @media (max-width: 768px) {
-        font-size: 1.25rem;
-        padding: 1.5rem 1rem 1rem;
-        max-width: 100%;
-        
-        &::before {
-            font-size: 3rem;
-        }
-    }
-}
-```
-
-**Note:** For full 4-corner decoration, the HTML needs a wrapper span. The pure CSS version uses 2 corners (top-left via `::after` and quote mark above). If 4 corners are needed, add this HTML:
-```html
-<blockquote class="pull-quote">
-  <span class="pull-quote-corner"></span>
   <p>Quote text here</p>
 </blockquote>
 ```
