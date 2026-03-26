@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Zola blog - Cloudflare Pages",
   "scripts": {
-    "build": "zola build",
-    "prebuild": "bash scripts/setup-zola.sh"
+    "prebuild": "bash scripts/setup-zola.sh && bash scripts/clone-theme.sh",
+    "build": "zola build"
   }
 }
