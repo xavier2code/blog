@@ -1,0 +1,28 @@
+{
+  "store": [
+    {
+      "id": "/posts/article-20260325/",
+      "title": "AI 热点日报｜2026年3月25日",
+      "url": "/posts/article-20260325/",
+      "description": "OpenAI关停Sora、Claude 4预售额突破一亿美元、Figure推土机项目免费开放"
+    },
+    {
+      "id": "/posts/article-20260326/",
+      "title": "AI 热点日报｜2026年3月26日",
+      "url": "/posts/article-20260326/",
+      "description": "OpenAI关停Sora、苹果WWDC26剧透AI进展、Kimi估值翻四倍至180亿美元"
+    },
+    {
+      "id": "/posts/ohmyzsh-vs-starship/",
+      "title": "ZSH 扩展对比：Oh My ZSH vs Starship",
+      "url": "/posts/ohmyzsh-vs-starship/",
+      "description": "对 Oh My ZSH、Starship 和 Fish Shell 进行全面对比分析"
+    },
+    {
+      "id": "/posts/x-theme-guide/",
+      "title": "x-theme 主题使用指南",
+      "url": "/posts/x-theme-guide/",
+      "description": "90年代复古印刷风格的 Zola 博客主题，具有醒目的排版、硬阴影和怀旧的滚动字幕"
+    }
+  ]
+}
