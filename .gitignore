@@ -1,6 +1,9 @@
 # Zola build output
 public/
 
+# Git worktrees
+.worktrees/
+
 # OS files
 .DS_Store
 
