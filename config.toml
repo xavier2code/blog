@@ -1,5 +1,5 @@
 base_url = "https://xavier2code.github.io/blog"
-title = "My Blog"
+title = "xavier2code"
 compile_sass = true
 build_search_index = true
 theme = "x-theme"
@@ -14,7 +14,8 @@ style = "class"
 theme = "github-dark"
 
 [extra]
-marquee_text = "★ WELCOME TO MY BLOG ★"
+marquee_text = "★ WELCOME ★"
+github_url = "https://github.com/xavier2code"
 
 [languages.en.translations]
 path = "themes/x-theme/i18n/en.toml"

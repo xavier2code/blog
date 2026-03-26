@@ -1,45 +1,222 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% set lang = current_path | truncate(l=3, end="") | trim(start="/") %}
-{% if lang != "en" %}{% set_global lang = "zh" %}{% endif %}
-{% set i18n = load_data(path="themes/x-theme/i18n/" ~ lang ~ ".toml") %}
-<h1 style="margin-bottom: 2rem; border-bottom: 3px solid black; padding-bottom: 1rem;">
-    {{ section.title }}
-</h1>
 {% set posts = get_section(path="posts/_index.md") %}
-<p class="post-count">{{ posts.pages | length }} {{ i18n.common.posts }}</p>
-
-{% if section.content %}
-<div class="section-intro">
-    {{ section.content | safe }}
+<div class="archive-header">
+    <div class="archive-header__label">// ARCHIVE — ALL POSTS</div>
+    <h1 class="archive-header__title">Every<br>Word.</h1>
+    <p class="archive-header__sub">{{ posts.pages | length }} POSTS · {{ now() | date(format="%Y") }}</p>
 </div>
-{% endif %}
 
-{% set_global current_year = "" %}
-{% for page in posts.pages | sort(attribute="date") | reverse %}
-{% set page_year = page.date | date(format="%Y") %}
-{% if page_year != current_year %}
-{% if current_year != "" %}
-</ul>
-{% endif %}
-<h2 class="timeline-year">{{ page_year }}</h2>
-<ul class="timeline-list">
-{% set_global current_year = page_year %}
-{% endif %}
-<li class="timeline-item">
-    <span class="timeline-date">{{ page.date | date(format="%m-%d") }}</span>
-    <a href="{{ page.permalink }}" class="timeline-title">{{ page.title }}</a>
-    {% if page.taxonomies.tags %}
-    <div class="timeline-tags">
-        {% for tag in page.taxonomies.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
+<div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Posts</button>
+    <button class="filter-btn" data-filter="AI">AI</button>
+    <button class="filter-btn" data-filter="Terminal">Terminal</button>
+    <button class="filter-btn" data-filter="Zola">Zola</button>
+    <button class="filter-btn" data-filter="Tools">Tools</button>
+</div>
+
+<div class="section-wrap">
+    <div class="month-divider reveal"><span class="month-divider__label">March 2026</span></div>
+
+    <div class="posts-count reveal">
+        SHOWING <strong>{{ posts.pages | length }}</strong> POSTS IN MARCH 2026
     </div>
-    {% endif %}
-</li>
-{% endfor %}
-{% if current_year != "" %}
-</ul>
-{% endif %}
+
+    {% for page in posts.pages | sort(attribute="date") | reverse %}
+    <div class="post-item reveal" data-category="{% if page.taxonomies.categories %}{{ page.taxonomies.categories[0] }}{% else %}Uncategorized{% endif %}">
+        <span class="post-item__num">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+        <div>
+            <div class="post-item__title">{{ page.title }}</div>
+            <div class="post-item__meta">{{ page.date | date(format="%Y-%m-%d") }}</div>
+        </div>
+        <div class="post-item__meta">{% if page.extra.read_time %}{{ page.extra.read_time }} min read{% endif %}</div>
+        {% if page.taxonomies.categories %}
+        <span class="post-item__tag">{{ page.taxonomies.categories[0] }}</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+.archive-header {
+    padding: 3rem 2rem 2rem;
+    border-bottom: 4px solid #1A1A1A;
+}
+.archive-header__label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: #E85D04;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.archive-header__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: #1A4B8C;
+}
+.archive-header__sub {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 0.8rem;
+    letter-spacing: 0.06em;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 3px solid #1A1A1A;
+    background: #F5F0E8;
+    overflow-x: auto;
+}
+.filter-btn {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.4rem;
+    border: none;
+    border-right: 2px solid #1A1A1A;
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+}
+.filter-btn:hover, .filter-btn.active {
+    background: #E85D04;
+    color: #fff;
+}
+
+.posts-count {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #1A1A1A;
+    padding-bottom: 1rem;
+}
+.posts-count strong {
+    color: #1A4B8C;
+}
+
+.post-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 160px auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid rgba(26, 26, 26, 0.12);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
+}
+.post-item:hover {
+    background: rgba(26, 26, 26, 0.03);
+    transform: translateX(4px);
+}
+.post-item:hover .post-item__title {
+    color: #E85D04;
+}
+.post-item__num {
+    font-family: 'Courier Prime', monospace;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(26, 26, 26, 0.1);
+    line-height: 1;
+}
+.post-item__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    transition: color 0.15s;
+}
+.post-item__meta {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    color: #888;
+    letter-spacing: 0.08em;
+}
+.post-item__tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1A4B8C;
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+}
+
+.month-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0 1.5rem;
+}
+.month-divider::before, .month-divider::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background: #1A1A1A;
+}
+.month-divider__label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    background: #F5F0E8;
+    padding: 0 0.5rem;
+}
+
+@media (max-width: 700px) {
+    .post-item {
+        grid-template-columns: 50px 1fr;
+        grid-template-rows: auto auto;
+    }
+    .post-item__meta {
+        grid-column: 2;
+    }
+    .post-item__tag {
+        grid-column: 2;
+        margin-top: 0.5rem;
+    }
+    .archive-header__title {
+        font-size: 3rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.post-item').forEach(item => {
+                item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+            });
+        });
+    });
+
+    // Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 60);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
+    reveals.forEach(el => observer.observe(el));
+});
+</script>
 {% endblock %}
