@@ -11,7 +11,6 @@ render = true
 ## 社交媒体
 
 - **GitHub**: [github.com/xavier2code](https://github.com/xavier2code)
-- **Twitter**: [@xavier2code](https://twitter.com/xavier2code)
 
 ## 留言
 

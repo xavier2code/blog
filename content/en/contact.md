@@ -11,7 +11,6 @@ If you have any questions, suggestions, or collaboration inquiries, feel free to
 ## Social Media
 
 - **GitHub**: [github.com/xavier2code](https://github.com/xavier2code)
-- **Twitter**: [@xavier2code](https://twitter.com/xavier2code)
 
 ## Leave a Message
 

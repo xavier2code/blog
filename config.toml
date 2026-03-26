@@ -14,10 +14,44 @@ style = "class"
 theme = "github-dark"
 
 [extra]
+author_name = "xavier2code"
+author_nickname = "2"
+author_subtitle = "FULL-STACK DEVELOPER · WUHAN, CHINA"
+author_quote = "在代码和文字之间来回横跳"
+author_bio = "独立开发者 · AI 大模型 · 开源工具 · 全栈开发"
+
+about_name = "xavier2code"
+about_nickname = "2"
+about_role = "FULL-STACK DEVELOPER · WUHAN, CHINA"
+about_img = "featured1.jpg"
+about_est = "EST. 2026"
+about_bio_1 = "我是 <strong>xavier2code</strong>，一个在代码和文字之间来回横跳的独立开发者。白天写工程代码，晚上写技术博客，偶尔折腾设计和排版。"
+about_bio_2 = "这个 blog 用 <strong>Zola</strong> 搭建，部署在 <strong>GitHub Pages</strong>，跑在 <strong>OpenClaw</strong> 上——是的，连 blog 的更新都是 AI 在自动完成的。"
+about_bio_3 = "关注领域：<strong>AI 大模型，开源工具、全栈开发</strong>。业余时间研究 90 年代平面设计和复古排版美学。"
+about_want_collaborate = "想合作？"
+about_open_to = "OPEN TO FREELANCE, OSS & INTERESTING PROJECTS"
+about_email = "xavier@example.com"
+about_github_url = "https://github.com/xavier2code"
+about_blog_url = "xavier2code.github.io/blog"
+
+skills = [
+  { name = "AI / LLM", desc = "Claude, OpenAI API, RAG", level = 85 },
+  { name = "Frontend", desc = "React, Vue, TypeScript", level = 80 },
+  { name = "Backend", desc = "Node.js, Python, Rust", level = 75 },
+  { name = "DevOps", desc = "Docker, GitHub Actions, Nginx", level = 70 },
+  { name = "Design", desc = "90s Print Aesthetic, Grid Systems", level = 65 },
+]
+
+timeline = [
+  { year = "2024 — NOW", title = "Independent Developer", desc = "Building personal projects and exploring AI." },
+  { year = "2020 — 2024", title = "Software Engineer", desc = "Full-stack development." },
+]
+
 marquee_text = "★ WELCOME ★"
 marquee_about = "ABOUT · xavier2code · FULL-STACK DEVELOPER · WUHAN, CHINA"
 marquee_archive = "ARCHIVE · ALL POSTS · CHRONOLOGICAL ORDER · UPDATED DAILY · SINCE 2026 · 90s PRINT MAGAZINE BLOG"
 github_url = "https://github.com/xavier2code"
+archive_posts_count = 4
 
 [languages.en.translations]
 path = "themes/x-theme/i18n/en.toml"
