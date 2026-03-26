@@ -1,0 +1,4 @@
+# Cloudflare Pages Configuration
+[build]
+command = "npm run build"
+directory = "public"
