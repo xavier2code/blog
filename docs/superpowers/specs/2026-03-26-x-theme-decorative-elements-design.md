@@ -137,6 +137,39 @@ Automatically applied via CSS `:first-of-type::first-letter` to `.post-content >
 
 ---
 
+## Additional Content Styling
+
+### 4. List Styling `.post-content ul, ol`
+
+**Purpose**: Style unordered and ordered lists to match Memphis theme
+
+**Appearance**:
+- Unordered lists: Diamond (◆) markers in accent color
+- Ordered lists: Numbered counters in accent color with heading font
+- Left padding for marker space
+- Bottom margin between items
+
+### 5. Link Styling `.post-content a`
+
+**Purpose**: Make links visually distinct with theme colors
+
+**Appearance**:
+- Color: Primary blue (#2563eb)
+- Underline: 2px thickness, offset 2px
+- Hover: Accent color (#ff6b35), no underline
+
+### 6. Table Styling `.post-content table`
+
+**Purpose**: Style Markdown tables in Memphis style
+
+**Appearance**:
+- Full width with border and shadow
+- Header: Black background, white text, heading font
+- Alternating row colors (subtle accent tint)
+- Hover state on rows (accent background)
+
+---
+
 ## Color Variables
 
 | Variable | Value | Usage |
@@ -145,3 +178,4 @@ Automatically applied via CSS `:first-of-type::first-letter` to `.post-content >
 | `$primary-color` | #2563eb | Secondary accent |
 | `$border-color` | #000000 | Borders and lines |
 | `$white` | #ffffff | Backgrounds |
+| `$bg-color` | #f5f0e6 | Page background |

@@ -72,13 +72,15 @@ Expected: Build succeeds
     margin: 2rem auto;
     max-width: 80%;
     border: none;
-    border-top: $border;
-    border-bottom: $border;
     position: relative;
     transform: rotate(-1deg);
     background: $accent-light;
     
-    // Large decorative quote mark (top center)
+    // Thick accent border top (Memphis style)
+    border-top: 6px solid $border-color;
+    border-bottom: 6px solid $border-color;
+    
+    // Large decorative quote mark via pseudo-element
     &::before {
         content: '"';
         font-family: $font-heading;
@@ -86,7 +88,7 @@ Expected: Build succeeds
         font-weight: 900;
         color: $accent-color;
         position: absolute;
-        top: -0.5rem;
+        top: -1.5rem;
         left: 50%;
         transform: translateX(-50%) rotate(-10deg);
         background: $bg-color;
@@ -94,19 +96,67 @@ Expected: Build succeeds
         line-height: 1;
     }
     
-    // Corner diamond decorations
-    // Top-left corner
+    // Corner diamond (bottom-right) via pseudo-element
     &::after {
         content: '◆';
-        font-size: 1rem;
+        font-size: 1.25rem;
         color: $accent-color;
         position: absolute;
-        top: 0.5rem;
-        left: 0.5rem;
+        bottom: -0.75rem;
+        right: 1rem;
         background: $bg-color;
-        padding: 0.25rem;
+        padding: 0 0.25rem;
         line-height: 1;
     }
+    
+    p {
+        margin-bottom: 0;
+        font-style: normal;
+    }
+    
+    @media (max-width: 768px) {
+        font-size: 1.25rem;
+        padding: 2rem 1rem 1.5rem;
+        max-width: 100%;
+        
+        &::before {
+            font-size: 3rem;
+            top: -1.25rem;
+        }
+    }
+}
+```
+
+**Enhanced version with 4 corners (requires HTML wrapper spans):**
+```scss
+// Add to pull-quote for 4-corner decoration
+.post-content blockquote.pull-quote {
+    // ... base styles above ...
+    
+    .corner {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: $accent-color;
+        border: 3px solid $border-color;
+        
+        &.tl { top: -8px; left: -8px; }
+        &.tr { top: -8px; right: -8px; }
+        &.bl { bottom: -8px; left: -8px; }
+        &.br { bottom: -8px; right: -8px; }
+    }
+}
+```
+With HTML:
+```html
+<blockquote class="pull-quote">
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
+  <p>Quote text here</p>
+</blockquote>
+```
     
     // For bottom-right corner, we need a wrapper span in HTML
     // Alternatively, use border tricks or a nested element
