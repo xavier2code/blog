@@ -2,14 +2,21 @@
 set -e
 
 ZOLA_VERSION="v0.22.0"
-OS="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
-case "$ARCH" in x86_64) ARCH="x86_64" ;; aarch64|arm64) ARCH="aarch64" ;; esac
-case "$OS" in linux) OS_NAME="linux" ;; darwin) OS_NAME="macos" ;; esac
-ASSET="zola-${ZOLA_VERSION#v}-${OS_NAME}-${ARCH}.tar.gz"
+OS="$(uname | tr '[:upper:]' '[:lower:]')"
+
+case "$ARCH" in
+  x86_64)  ARCH_STR="x86_64" ;;
+  aarch64|arm64) ARCH_STR="aarch64" ;;
+esac
+
+# Linux glibc asset (Cloudflare Pages uses Linux glibc)
+ASSET="zola-${ZOLA_VERSION}-${ARCH_STR}-unknown-linux-gnu.tar.gz"
 URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/${ASSET}"
-echo "Installing Zola $ZOLA_VERSION for $OS_NAME-$ARCH..."
+
+echo "Installing Zola $ZOLA_VERSION for ${ARCH_STR}-unknown-linux-gnu..."
 curl -fsSL "$URL" -o /tmp/zola.tar.gz
+
 mkdir -p /tmp/zola-extract
 tar -xzf /tmp/zola.tar.gz -C /tmp/zola-extract
 mkdir -p "$HOME/.local/bin"
