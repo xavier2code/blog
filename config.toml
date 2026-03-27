@@ -55,11 +55,7 @@ system_error = "系统错误 — 页面未找到"
 lost_in_grid = "迷失<br><em>在网格中。</em>"
 error_message = "您查找的页面不存在、已被移动，<br>或者像90年代的屏幕保护程序一样跑掉了。"
 back_to_home = "← 返回首页"
-about_bio_1 = "我是 <strong>xavier2code</strong>，一个在代码和文字之间来回横跳的独立开发者。白天写工程代码，晚上写技术博客，偶尔折腾设计和排版。"
-about_bio_2 = "这个 blog 用 <strong>Zola</strong> 搭建，部署在 <strong>GitHub Pages</strong>，跑在 <strong>OpenClaw</strong> 上——是的，连 blog 的更新都是 AI 在自动完成的。"
-about_bio_3 = "关注领域：<strong>AI 大模型，开源工具、全栈开发</strong>。业余时间研究 90 年代平面设计和复古排版美学。"
-author_quote = "在代码和文字之间来回横跳"
-author_bio = "独立开发者 · AI 大模型 · 开源工具 · 全栈开发"
+
 
 [extra]
 author_name = "xavier2code"
