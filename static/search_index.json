@@ -4,25 +4,36 @@
       "id": "/posts/article-20260325/",
       "title": "AI 热点日报｜2026年3月25日",
       "url": "/posts/article-20260325/",
-      "description": "OpenAI关停Sora、Claude 4预售额突破一亿美元、Figure推土机项目免费开放"
+      "description": "OpenAI关停Sora、Claude 4预售额突破一亿美元、Figure推土机项目免费开放",
+      "content": "刚刚过去的一天，AI 领域继续保持高速发展态势。"
     },
     {
       "id": "/posts/article-20260326/",
       "title": "AI 热点日报｜2026年3月26日",
       "url": "/posts/article-20260326/",
-      "description": "OpenAI关停Sora、苹果WWDC26剧透AI进展、Kimi估值翻四倍至180亿美元"
+      "description": "OpenAI关停Sora、苹果WWDC26剧透AI进展、Kimi估值翻四倍至180亿美元",
+      "content": "今日AI领域传来多条重磅消息。"
+    },
+    {
+      "id": "/posts/article-20260327/",
+      "title": "AI 热点日报｜2026年03月27日",
+      "url": "/posts/article-20260327/",
+      "description": "三连冠！中国AI调用量碾压美国，苹果终于All in了",
+      "content": "刚刚过去的一周，中国AI在全球舞台上连放大招——词元调用量连续第三周超越美国。"
     },
     {
       "id": "/posts/ohmyzsh-vs-starship/",
       "title": "ZSH 扩展对比：Oh My ZSH vs Starship",
       "url": "/posts/ohmyzsh-vs-starship/",
-      "description": "对 Oh My ZSH、Starship 和 Fish Shell 进行全面对比分析"
+      "description": "对 Oh My ZSH、Starship 和 Fish Shell 进行全面对比分析",
+      "content": "在终端美化领域，ZSH 扩展一直是热门话题。"
     },
     {
       "id": "/posts/x-theme-guide/",
       "title": "x-theme 主题使用指南",
       "url": "/posts/x-theme-guide/",
-      "description": "90年代复古印刷风格的 Zola 博客主题，具有醒目的排版、硬阴影和怀旧的滚动字幕"
+      "description": "90年代复古印刷风格的 Zola 博客主题，具有醒目的排版、硬阴影和怀旧的滚动字幕",
+      "content": "x-theme 是一个使用 Zola 搭建的复古风格博客主题。"
     }
   ]
 }
